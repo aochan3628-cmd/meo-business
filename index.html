@@ -7,9 +7,13 @@
     <meta name="description" content="全国対応・Googleマップ（MEO）運用代行。口コミ返信・投稿代行・画像作成まで。土日祈も即レス対応。月額3,000円〜のモニター募集中。">
     <meta name="keywords" content="MEO,Googleマップ,運用代行,口コミ返信,投稿代行,Googleビジネスプロフィール,全国対応">
     <title>Blue Life | MEO・Googleマップ運用代行【全国対応】</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,7 +21,7 @@
     <!-- ヘッダー -->
     <header class="header">
         <div class="header-inner">
-            <a href="index.html" class="logo">Blue <span>Life</span></a>
+            <a href="index.html" class="logo"><i class="fa-solid fa-map-location-dot"></i> Blue <span>Life</span></a>
             <nav class="nav">
                 <ul class="nav-list" id="navList">
                     <li><a href="index.html" class="active">ホーム</a></li>
@@ -25,7 +29,8 @@
                     <li><a href="portfolio.html">実績・サンプル</a></li>
                     <li><a href="profile.html">事業概要</a></li>
                 </ul>
-                <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-primary">ココナラで相談する</a>
+                <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-primary"><i
+                        class="fa-solid fa-envelope"></i> ココナラで相談する</a>
                 <div class="hamburger" id="hamburger" onclick="toggleMenu()">
                     <span></span>
                     <span></span>
@@ -38,7 +43,7 @@
     <!-- ヒーローセクション -->
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-badge">🏪 店舗オーナー様の強い味方</span>
+            <div class="hero-badge"><i class="fa-solid fa-store"></i> 店舗オーナー様の強い味方</div>
             <h1>Googleマップ運用<br>丸ごとお任せください</h1>
             <p class="hero-subtitle">口コミ返信・投稿代行・画像作成まで<br>面倒なGoogleビジネスプロフィール運用をすべて代行します</p>
             <div class="hero-price">
@@ -46,20 +51,20 @@
             </div>
             <div class="hero-features">
                 <div class="hero-feature">
-                    <span class="icon">✅</span>
-                    <span>🌏 全国対応・オンライン完結</span>
+                    <i class="fa-solid fa-earth-asia"></i>
+                    <span>全国対応・オンライン完結</span>
                 </div>
                 <div class="hero-feature">
-                    <span class="icon">✅</span>
+                    <i class="fa-solid fa-clock"></i>
                     <span>平日日中・土日祝も即レス</span>
                 </div>
                 <div class="hero-feature">
-                    <span class="icon">✅</span>
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
                     <span>AI × プロの目で高品質</span>
                 </div>
             </div>
             <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-primary btn-large">まずはココナラで詳細を見る
-                →</a>
+                <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
 
@@ -71,25 +76,37 @@
             </div>
             <div class="problems-list">
                 <div class="problem-item">
-                    <span class="icon">😰</span>
+                    <i class="fa-solid fa-face-tired"></i>
                     <p>Googleマップの口コミ、放置してしまっている…</p>
                 </div>
                 <div class="problem-item">
-                    <span class="icon">📞</span>
+                    <i class="fa-solid fa-phone-slash"></i>
                     <p>MEO業者の営業電話がかかってくるが、高額で手が出ない</p>
                 </div>
                 <div class="problem-item">
-                    <span class="icon">⏰</span>
+                    <i class="fa-solid fa-hourglass-half"></i>
                     <p>日々の業務が忙しくて、パソコンを開く時間がない</p>
                 </div>
                 <div class="problem-item">
-                    <span class="icon">🤔</span>
+                    <i class="fa-solid fa-circle-question"></i>
                     <p>やった方がいいのは分かるけど、何をすればいいか分からない</p>
                 </div>
             </div>
             <div class="problems-solution">
                 <p>その面倒な作業、私が<br>「オンラインの事務員」として代行します。</p>
             </div>
+        </div>
+    </section>
+
+    <!-- イメージセクション (サービス) -->
+    <section class="image-section" style="background-image: url('images/service-meo.png');">
+        <div class="image-overlay">
+            <h2>MEO対策こそ、集客の要です</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                多くのお客様が、お店選びで最初にGoogleマップを見ます。<br>
+                常に最新の情報を発信し、丁寧な口コミ返信を行うことで、<br>
+                あなたのお店は「選ばれるお店」に変わります。
+            </p>
         </div>
     </section>
 
@@ -102,22 +119,28 @@
             </div>
             <div class="reasons-grid">
                 <div class="reason-card">
-                    <span class="number">1</span>
+                    <div class="number">01</div>
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
                     <h3>MEO運用の<br>ボトルネックを解消</h3>
                     <p>口コミ返信・投稿作成はもちろん、「素材がない」「画像がない」などの問題もまとめて解決します。</p>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">※モニタープラン目安：投稿週1回、口コミ返信月10件、写真登録月5枚程度
-                    </p>
+                    <div class="reason-note">※モニタープラン目安：投稿週1回、口コミ返信月10件、写真登録月5枚程度</div>
                 </div>
                 <div class="reason-card">
-                    <span class="number">2</span>
+                    <div class="number">02</div>
+                    <div class="icon-wrapper">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </div>
                     <h3>土日・祝日も<br>稼働中</h3>
                     <p>お店が忙しい週末こそサポートします。平日日中も連絡がつくので、急な依頼にも対応可能。</p>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">
-                        <strong>指示待ちではなく、「次はこれを投稿しましょう」と先回り提案します</strong>
-                    </p>
+                    <div class="reason-note"><strong>指示待ちではなく、「次はこれを投稿しましょう」と先回り提案します</strong></div>
                 </div>
                 <div class="reason-card">
-                    <span class="number">3</span>
+                    <div class="number">03</div>
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
                     <h3>圧倒的な<br>コストパフォーマンス</h3>
                     <p>AIとツールを駆使するため、専門業者の半額以下で対応可能。まずは気軽にお試しください。</p>
                 </div>
@@ -125,46 +148,71 @@
         </div>
     </section>
 
-    <!-- モニター募集セクション -->
-    <section class="offer" id="offer">
-        <div class="container">
-            <span class="offer-badge">🎁 期間限定オファー</span>
-            <h2>モニター募集中！</h2>
-            <p>ココナラでの実績作りのため、<br>通常15,000円相当の内容を<strong>先着5名様限定で3,000円</strong>で提供中</p>
-            <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-large">今すぐモニター枠を確保する →</a>
+    <!-- イメージセクション (サポート) -->
+    <section class="image-section" style="background-image: url('images/support-online.png');">
+        <div class="image-overlay">
+            <h2>全国どこでも、チャットひとつで</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                PCに向かう時間が取れなくても大丈夫。<br>
+                スマホからチャットで指示をいただければ、あとは私が作業します。<br>
+                面倒な管理画面の操作はすべてお任せください。
+            </p>
         </div>
     </section>
 
     <!-- ドアノック商品セクション -->
-    <section class="section" style="text-align: center;">
+    <section class="section section-alt">
         <div class="container">
             <div class="section-header">
                 <h2>🚪 まずは単発で試したい方へ</h2>
                 <p>いきなり月額契約は不安…という方に</p>
             </div>
-            <div
-                style="max-width: 500px; margin: 0 auto; background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow);">
-                <h3 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 15px;">Google口コミ返信代行</h3>
-                <p style="font-size: 2.5rem; font-weight: 700; color: var(--accent); margin-bottom: 15px;">1,000<span
-                        style="font-size: 1rem;">円〜</span></p>
-                <ul style="text-align: left; margin-bottom: 25px;">
-                    <li style="padding: 8px 0;">✓ 口コミ返信 5件まで</li>
-                    <li style="padding: 8px 0;">✓ AI活用＋プロ視点でリライト</li>
-                    <li style="padding: 8px 0;">✓ 最短即日納品</li>
+
+            <div class="door-knock">
+                <div class="door-knock-badge">お試しに最適</div>
+                <h3 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 10px;">Google口コミ返信代行</h3>
+                <div class="door-knock-price">1,000<span>円〜</span></div>
+
+                <ul class="door-knock-features">
+                    <li><i class="fa-solid fa-check"></i> 口コミ返信 5件まで</li>
+                    <li><i class="fa-solid fa-check"></i> AI活用＋プロ視点でリライト</li>
+                    <li><i class="fa-solid fa-check"></i> 最短即日納品</li>
                 </ul>
-                <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">まずはお試しで、クオリティを確認してください</p>
-                <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-primary">このプランで相談する →</a>
+
+                <p style="font-size: 0.95rem; color: #666; margin-bottom: 30px;">まずはお試しで、クオリティを確認してください</p>
+                <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-primary">このプランで相談する <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- モニター募集セクション -->
+    <section class="offer" id="offer">
+        <div class="offer-content" style="padding: 80px 20px;">
+            <div class="container">
+                <span
+                    style="display: inline-block; background: rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.5); padding: 5px 20px; border-radius: 30px; margin-bottom: 20px;">🎁
+                    期間限定オファー</span>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">モニター募集中！</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9;">
+                    ココナラでの実績作りのため、<br>
+                    通常15,000円相当の内容を<strong>先着5名様限定で3,000円</strong>で提供中
+                </p>
+                <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-large">今すぐモニター枠を確保する <i
+                        class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
     <!-- CTAセクション -->
-    <section class="cta">
-        <div class="container">
-            <h2>まずはお気軽にご相談ください</h2>
-            <p>「こんなこともお願いできる？」など、何でもお聞きください。<br>ご相談・お見積もりは無料です。</p>
-            <a href="https://coconala.com/users/1638958" target="_blank"
-                class="btn btn-primary btn-large">ココナラで相談する（会員登録不要）</a>
+    <section class="section">
+        <div class="container text-center">
+            <div class="section-header">
+                <h2>まずはお気軽にご相談ください</h2>
+                <p>「こんなこともお願いできる？」など、何でもお聞きください。<br>ご相談・お見積もりは無料です。</p>
+            </div>
+            <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-primary btn-large"><i
+                    class="fa-solid fa-envelope"></i> ココナラで相談する（会員登録不要）</a>
         </div>
     </section>
 
@@ -172,8 +220,8 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-about">
-                <div class="footer-logo">Blue <span>Life</span></div>
-                <p class="footer-desc">Webが苦手な店長様の「右腕」として、Googleマップ運用をサポートします。</p>
+                <div class="footer-logo"><i class="fa-solid fa-map-location-dot"></i> Blue <span>Life</span></div>
+                <p class="footer-desc">Webが苦手な店長様の「右腕」として、<br>MEO・Googleマップ運用をサポートします。<br>北海道釧路市から全国へ。</p>
             </div>
             <div class="footer-nav">
                 <h4>ページ</h4>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Googleマップ運用代行のサービス内容と料金について。口コミ返信代行1,000円〜、運用丸投げパック月額3,000円〜。">
     <title>サービス・料金 | Blue Life</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
     <!-- ヘッダー -->
     <header class="header">
         <div class="header-inner">
-            <a href="index.html" class="logo">Blue <span>Life</span></a>
+            <a href="index.html" class="logo"><i class="fa-solid fa-map-location-dot"></i> Blue <span>Life</span></a>
             <nav class="nav">
                 <ul class="nav-list" id="navList">
                     <li><a href="index.html">ホーム</a></li>
@@ -24,7 +25,8 @@
                     <li><a href="portfolio.html">実績・サンプル</a></li>
                     <li><a href="profile.html">事業概要</a></li>
                 </ul>
-                <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-primary">ココナラで相談する</a>
+                <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-primary"><i
+                        class="fa-solid fa-envelope"></i> ココナラで相談する</a>
                 <div class="hamburger" id="hamburger" onclick="toggleMenu()">
                     <span></span>
                     <span></span>
@@ -35,9 +37,10 @@
     </header>
 
     <!-- ページヘッダー -->
-    <section class="page-header">
-        <h1>サービス・料金</h1>
-        <p>あなたのお店に合ったプランをお選びください</p>
+    <section class="page-header"
+        style="background: var(--hero-overlay), url('images/hero-bg.png'); background-size: cover; background-position: center; padding: 100px 20px; text-align: center; color: white;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 15px;">サービス・料金</h1>
+        <p style="font-size: 1.1rem; opacity: 0.9;">あなたのお店に合ったプランをお選びください</p>
     </section>
 
     <!-- 料金プラン -->
@@ -52,40 +55,44 @@
                 <!-- プランA：お試しプラン -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>🚪 信頼獲得プラン</h3>
+                        <h3><i class="fa-solid fa-door-open"></i> 信頼獲得プラン</h3>
                         <p>まずはお試しで</p>
                         <div class="pricing-price">1,000<span>円〜</span></div>
                     </div>
                     <div class="pricing-body">
                         <ul class="pricing-list">
-                            <li><span class="check">✓</span> 口コミ返信 5〜10件</li>
-                            <li><span class="check">✓</span> AI活用＋プロ視点でリライト</li>
-                            <li><span class="check">✓</span> 最短即日納品</li>
-                            <li><span class="check">✓</span> 修正対応あり</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 口コミ返信 5〜10件</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> AI活用＋プロ視点でリライト</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 最短即日納品</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 修正対応あり</li>
                         </ul>
-                        <p style="font-size: 0.9rem; color: #666;">※口コミ内容に合わせて、温かみのある返信文を作成します</p>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">※口コミ内容に合わせて、温かみのある返信文を作成します</p>
                         <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-outline"
                             style="width: 100%; margin-top: 20px;">このプランで相談する</a>
                     </div>
                 </div>
 
                 <!-- プランB：本命プラン -->
-                <div class="pricing-card featured">
-                    <div class="pricing-header" style="background: var(--accent);">
-                        <h3>📦 運用丸投げパック</h3>
-                        <p>おすすめ！一番人気</p>
-                        <div class="pricing-price">3,000<span>円/月〜</span></div>
+                <div class="pricing-card featured"
+                    style="transform: scale(1.05); border: 2px solid var(--accent); position: relative; z-index: 10;">
+                    <div
+                        style="position: absolute; top: 0; left: 0; right: 0; background: var(--accent); color: white; text-align: center; font-size: 0.8rem; font-weight: 700; padding: 5px;">
+                        おすすめ！一番人気</div>
+                    <div class="pricing-header" style="background: var(--primary); color: white; padding-top: 30px;">
+                        <h3 style="color: white;"><i class="fa-solid fa-box-open"></i> 運用丸投げパック</h3>
+                        <p style="color: rgba(255,255,255,0.8);">おすすめ！一番人気</p>
+                        <div class="pricing-price" style="color: white;">3,000<span>円/月〜</span></div>
                     </div>
                     <div class="pricing-body">
                         <ul class="pricing-list">
-                            <li><span class="check">✓</span> 週1回の最新情報投稿</li>
-                            <li><span class="check">✓</span> 投稿画像の作成（Canva使用）</li>
-                            <li><span class="check">✓</span> 月10件までの口コミ返信</li>
-                            <li><span class="check">✓</span> 基本情報の修正・更新</li>
-                            <li><span class="check">✓</span> 月次レポート送付</li>
-                            <li><span class="check">✓</span> チャットでの相談無制限</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 週1回の最新情報投稿</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 投稿画像の作成（Canva使用）</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 月10件までの口コミ返信</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 基本情報の修正・更新</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 月次レポート送付</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> チャットでの相談無制限</li>
                         </ul>
-                        <p style="font-size: 0.9rem; color: #666;">※通常15,000円相当 → モニター価格で提供中</p>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">※通常15,000円相当 → モニター価格で提供中</p>
                         <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-primary"
                             style="width: 100%; margin-top: 20px;">このプランで相談する</a>
                     </div>
@@ -94,20 +101,20 @@
                 <!-- プランC：しっかりプラン -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>🚀 集客強化プラン</h3>
+                        <h3><i class="fa-solid fa-rocket"></i> 集客強化プラン</h3>
                         <p>本格的に取り組みたい方へ</p>
                         <div class="pricing-price">8,000<span>円/月〜</span></div>
                     </div>
                     <div class="pricing-body">
                         <ul class="pricing-list">
-                            <li><span class="check">✓</span> 週2〜3回の投稿</li>
-                            <li><span class="check">✓</span> 投稿画像の作成</li>
-                            <li><span class="check">✓</span> 口コミ返信 無制限</li>
-                            <li><span class="check">✓</span> 競合分析レポート</li>
-                            <li><span class="check">✓</span> 改善提案・アドバイス</li>
-                            <li><span class="check">✓</span> POP・チラシ作成 月2点</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 週2〜3回の投稿</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 投稿画像の作成</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 口コミ返信 無制限</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 競合分析レポート</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> 改善提案・アドバイス</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--success);"></i> POP・チラシ作成 月2点</li>
                         </ul>
-                        <p style="font-size: 0.9rem; color: #666;">※インバウンド対応なども追加可能</p>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">※インバウンド対応なども追加可能</p>
                         <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-outline"
                             style="width: 100%; margin-top: 20px;">このプランで相談する</a>
                     </div>
@@ -124,39 +131,45 @@
                 <p>「これもお願いできる？」に柔軟に対応します</p>
             </div>
 
-            <table class="options-table">
-                <thead>
+            <table class="options-table"
+                style="width: 100%; border-collapse: collapse; background: white; box-shadow: var(--shadow); border-radius: 10px; overflow: hidden;">
+                <thead style="background: var(--primary); color: white;">
                     <tr>
-                        <th>オプション内容</th>
-                        <th>料金</th>
-                        <th>備考</th>
+                        <th style="padding: 15px; text-align: left;">オプション内容</th>
+                        <th style="padding: 15px; text-align: left;">料金</th>
+                        <th style="padding: 15px; text-align: left;">備考</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>📸 写真撮影アドバイス</td>
-                        <td>無料</td>
-                        <td>スマホでの撮影コツをお伝えします</td>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 15px;"><i class="fa-solid fa-camera"
+                                style="color: var(--accent); margin-right: 10px;"></i> 写真撮影アドバイス</td>
+                        <td style="padding: 15px;">無料</td>
+                        <td style="padding: 15px;">スマホでの撮影コツをお伝えします</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 15px;"><i class="fa-solid fa-palette"
+                                style="color: var(--accent); margin-right: 10px;"></i> POP・チラシ作成（Canva）</td>
+                        <td style="padding: 15px;">1,000円/点〜</td>
+                        <td style="padding: 15px;">店内ポスター、メニュー表など</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 15px;"><i class="fa-solid fa-language"
+                                style="color: var(--accent); margin-right: 10px;"></i> 英語対応（インバウンド）</td>
+                        <td style="padding: 15px;">+3,000円/月</td>
+                        <td style="padding: 15px;">外国語での返信・投稿作成</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 15px;"><i class="fa-solid fa-chart-line"
+                                style="color: var(--accent); margin-right: 10px;"></i> 投稿頻度アップ</td>
+                        <td style="padding: 15px;">+5,000円/月</td>
+                        <td style="padding: 15px;">週2〜3回の投稿に増加</td>
                     </tr>
                     <tr>
-                        <td>🎨 POP・チラシ作成（Canva）</td>
-                        <td>1,000円/点〜</td>
-                        <td>店内ポスター、メニュー表など</td>
-                    </tr>
-                    <tr>
-                        <td>🌏 英語対応（インバウンド）</td>
-                        <td>+3,000円/月</td>
-                        <td>外国語での返信・投稿作成</td>
-                    </tr>
-                    <tr>
-                        <td>📈 投稿頻度アップ</td>
-                        <td>+5,000円/月</td>
-                        <td>週2〜3回の投稿に増加</td>
-                    </tr>
-                    <tr>
-                        <td>📊 詳細レポート作成</td>
-                        <td>3,000円/回</td>
-                        <td>競合比較、改善提案付き</td>
+                        <td style="padding: 15px;"><i class="fa-solid fa-file-lines"
+                                style="color: var(--accent); margin-right: 10px;"></i> 詳細レポート作成</td>
+                        <td style="padding: 15px;">3,000円/回</td>
+                        <td style="padding: 15px;">競合比較、改善提案付き</td>
                     </tr>
                 </tbody>
             </table>
@@ -178,17 +191,20 @@
 
             <div class="reasons-grid">
                 <div class="reason-card">
-                    <span class="number">1</span>
+                    <div class="number">1</div>
+                    <div class="icon-wrapper"><i class="fa-solid fa-comments"></i></div>
                     <h3>ココナラで相談</h3>
                     <p>「こんなことをお願いしたい」とお気軽にメッセージください。お見積もりは無料です。</p>
                 </div>
                 <div class="reason-card">
-                    <span class="number">2</span>
+                    <div class="number">2</div>
+                    <div class="icon-wrapper"><i class="fa-solid fa-file-contract"></i></div>
                     <h3>プラン決定・購入</h3>
                     <p>ご要望に合わせてプランをご提案。ご納得いただけたらココナラで購入手続きを行います。</p>
                 </div>
                 <div class="reason-card">
-                    <span class="number">3</span>
+                    <div class="number">3</div>
+                    <div class="icon-wrapper"><i class="fa-solid fa-rocket"></i></div>
                     <h3>作業開始</h3>
                     <p>必要な情報をいただいたら作業開始。進捗はこまめにご報告します。</p>
                 </div>
@@ -198,11 +214,11 @@
 
     <!-- CTA -->
     <section class="cta">
-        <div class="container">
+        <div class="container text-center">
             <h2>まずは無料相談から</h2>
             <p>「自分のお店に合うプランはどれ？」など、何でもお聞きください。</p>
-            <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-primary btn-large">ココナラで相談する
-                →</a>
+            <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-primary btn-large"><i
+                    class="fa-solid fa-envelope"></i> ココナラで相談する →</a>
         </div>
     </section>
 
@@ -210,7 +226,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-about">
-                <div class="footer-logo">Blue <span>Life</span></div>
+                <div class="footer-logo"><i class="fa-solid fa-map-location-dot"></i> Blue <span>Life</span></div>
                 <p class="footer-desc">Webが苦手な店長様の「右腕」として、Googleマップ運用をサポートします。</p>
             </div>
             <div class="footer-nav">
