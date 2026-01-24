@@ -752,3 +752,109 @@ table { width: 100%; border-collapse: collapse; background: var(--white); border
 th, td { padding: 18px 25px; text-align: left; border-bottom: 1px solid #eee; }
 th { background: var(--primary-light); color: var(--white); font-weight: 600; width: 30%; }
 @media (max-width: 768px) { th, td { display: block; width: 100%; } th { background: var(--primary); } }
+
+/* Pricing Cards Layout Fix */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: stretch;
+    padding: 20px 0;
+}
+
+.pricing-card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: visible;
+    transition: var(--transition);
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.pricing-card.featured {
+    margin-top: 25px;
+    overflow: visible;
+}
+
+.pricing-card.featured > div:first-child {
+    top: -15px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    padding: 10px 25px !important;
+    white-space: nowrap;
+}
+
+.pricing-header {
+    padding: 30px;
+    text-align: center;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.pricing-card.featured .pricing-header {
+    padding-top: 45px;
+}
+
+.pricing-header h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.pricing-header p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.pricing-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.pricing-price span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.pricing-body {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.pricing-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.pricing-list li i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.pricing-body .btn {
+    margin-top: auto;
+}
