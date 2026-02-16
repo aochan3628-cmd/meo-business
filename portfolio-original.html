@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Googleマップ運用代行の実績とサンプル。口コミ返信のBefore/After、投稿画像の作成事例などを掲載。">
+    <title>実績・サンプル | Blue Life</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo"><img src="images/logo-bluelife.png" alt="Blue Life"
+                    style="height: 45px; vertical-align: middle;"></a>
+            <nav class="nav">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">サービス・料金</a></li>
+                    <li><a href="portfolio.html" class="active">実績・サンプル</a></li>
+                    <li><a href="profile.html">事業概要</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+                <a href="https://coconala.com/users/5311104" target="_blank" class="btn btn-primary"><i
+                        class="fa-solid fa-envelope"></i> ココナラで相談する</a>
+                <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ページヘッダー -->
+    <section class="page-header"
+        style="background: var(--hero-overlay), url('images/hero-bg.png'); background-size: cover; background-position: center; padding: 100px 20px; text-align: center; color: white;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 15px;">実績・サンプル</h1>
+        <p style="font-size: 1.1rem; opacity: 0.9;">これまでの作成事例をご紹介します</p>
+    </section>
+
+    <!-- クチコミ返信Before/After -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>口コミ返信の改善例</h2>
+                <p>ただ返すだけでなく、次のお客様につなげる返信を意識しています</p>
+            </div>
+
+            <div class="portfolio-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                <!-- 事例1 -->
+                <div class="portfolio-item"
+                    style="background: white; border-radius: 20px; box-shadow: var(--shadow); padding: 30px; border-top: 5px solid var(--accent);">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div
+                            style="background: #fff8e1; color: #f39c12; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <h3 style="font-size: 1.4rem;">ラーメン店 A店様</h3>
+                    </div>
+
+                    <div class="case-study">
+                        <div class="case-bad"
+                            style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #ccc;">
+                            <span
+                                style="display: block; font-weight: 700; color: #666; margin-bottom: 5px; font-size: 0.9rem;"><i
+                                    class="fa-solid fa-circle-xmark"></i> 修正前（よくある定型文）</span>
+                            <p style="font-size: 0.95rem; color: #555;">「ご来店ありがとうございます。またのお越しをお待ちしております。」</p>
+                        </div>
+
+                        <div style="text-align: center; font-size: 1.5rem; color: var(--accent); margin: 10px 0;">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+
+                        <div class="case-good"
+                            style="background: #f0f7ff; padding: 15px; border-radius: 10px; border-left: 4px solid var(--accent);">
+                            <span
+                                style="display: block; font-weight: 700; color: var(--accent); margin-bottom: 5px; font-size: 0.9rem;"><i
+                                    class="fa-solid fa-circle-check"></i> 修正後（Blue Life作成）</span>
+                            <p style="font-size: 0.95rem;">「〇〇様、ご来店ありがとうございます！<br>
+                                一番人気の味噌ラーメンを気に入っていただけて嬉しいです。<br>
+                                実は、卓上の『特製辛味噌』を少し足すと、さらにコクが出ておすすめですよ🍜<br>
+                                また近くにお越しの際は、ぜひお試しください！スタッフ一同お待ちしております。」</p>
+                        </div>
+                        <div class="case-point" style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                            <i class="fa-solid fa-lightbulb" style="color: #f39c12;"></i> <strong>Point:</strong>
+                            おすすめの食べ方を提案し、再来店のきっかけを作りました。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 事例2 -->
+                <div class="portfolio-item"
+                    style="background: white; border-radius: 20px; box-shadow: var(--shadow); padding: 30px; border-top: 5px solid var(--primary);">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div
+                            style="background: #eef2f7; color: var(--primary); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">
+                            <i class="fa-solid fa-scissors"></i>
+                        </div>
+                        <h3 style="font-size: 1.4rem;">美容室 B店様</h3>
+                    </div>
+
+                    <div class="case-study">
+                        <div class="case-bad"
+                            style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #ccc;">
+                            <span
+                                style="display: block; font-weight: 700; color: #666; margin-bottom: 5px; font-size: 0.9rem;"><i
+                                    class="fa-solid fa-circle-xmark"></i> 修正前（オーナー多忙につき短文）</span>
+                            <p style="font-size: 0.95rem; color: #555;">「評価ありがとうございます。励みになります。」</p>
+                        </div>
+
+                        <div style="text-align: center; font-size: 1.5rem; color: var(--primary); margin: 10px 0;">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+
+                        <div class="case-good"
+                            style="background: #f0f7ff; padding: 15px; border-radius: 10px; border-left: 4px solid var(--primary);">
+                            <span
+                                style="display: block; font-weight: 700; color: var(--primary); margin-bottom: 5px; font-size: 0.9rem;"><i
+                                    class="fa-solid fa-circle-check"></i> 修正後（Blue Life作成）</span>
+                            <p style="font-size: 0.95rem;">「素敵な口コミありがとうございます！<br>
+                                今回はこれからの季節に合わせて、少し軽さを出したカットにしてみました✨<br>
+                                スタイリングで困ったことがあれば、いつでもご相談くださいね。<br>
+                                次回もリラックスしていただけるよう準備してお待ちしております！」</p>
+                        </div>
+                        <div class="case-point" style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                            <i class="fa-solid fa-lightbulb" style="color: #f39c12;"></i> <strong>Point:</strong>
+                            施術内容に触れ、顧客一人ひとりを大切にしている姿勢を伝えました。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LP・Webサイト制作サンプル -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>LP・Webサイト制作サンプル</h2>
+                <p>店舗様向けのランディングページ制作も承っております</p>
+            </div>
+
+            <div class="portfolio-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+
+                <!-- 居酒屋LP -->
+                <div class="portfolio-item"
+                    style="background: white; border-radius: 20px; box-shadow: var(--shadow); overflow: hidden;">
+                    <div style="position: relative;">
+                        <img src="images/portfolio-izakaya.jpg" alt="炭火焼き鳥 炎-HOMURA- LP"
+                            style="width: 100%; height: 250px; object-fit: cover;">
+                        <div
+                            style="position: absolute; top: 15px; left: 15px; background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                            🔥 飲食店LP
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: var(--text);">炭火焼き鳥 炎-HOMURA-</h3>
+                        <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px; line-height: 1.6;">
+                            架空の焼き鳥店をイメージした本格的なLP。予約フォーム・メニュー・コース案内・アクセス情報など、飲食店に必要な情報を網羅したデモサイトです。
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">レスポンシブ対応</span>
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">予約フォーム</span>
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">メニュータブ</span>
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">Googleマップ連携</span>
+                        </div>
+                        <a href="https://aochan3628-cmd.github.io/izakaya-lp/" target="_blank" class="btn btn-primary"
+                            style="width: 100%; text-align: center;">
+                            <i class="fa-solid fa-external-link-alt"></i> デモサイトを見る
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 美容室LP -->
+                <div class="portfolio-item"
+                    style="background: white; border-radius: 20px; box-shadow: var(--shadow); overflow: hidden;">
+                    <div style="position: relative;">
+                        <img src="images/portfolio-beauty.jpg" alt="BLOOM Hair Salon LP"
+                            style="width: 100%; height: 250px; object-fit: cover;">
+                        <div
+                            style="position: absolute; top: 15px; left: 15px; background: linear-gradient(135deg, #d4a574, #b8956e); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                            ✨ 美容室LP
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: var(--text);">BLOOM Hair Salon</h3>
+                        <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px; line-height: 1.6;">
+                            表参道をイメージした高級感のある美容室LP。完全個室・予約制のプライベートサロンをコンセプトに、メニュー・スタイリスト紹介・スタイルギャラリーを掲載。
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">レスポンシブ対応</span>
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">スタイルギャラリー</span>
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">予約ボタン</span>
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">エレガントデザイン</span>
+                        </div>
+                        <a href="https://aochan3628-cmd.github.io/beauty-salon-lp/" target="_blank"
+                            class="btn btn-primary" style="width: 100%; text-align: center;">
+                            <i class="fa-solid fa-external-link-alt"></i> デモサイトを見る
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 建設業LP -->
+                <div class="portfolio-item"
+                    style="background: white; border-radius: 20px; box-shadow: var(--shadow); overflow: hidden;">
+                    <div style="position: relative;">
+                        <img src="images/portfolio-construction.png" alt="匠建設 LP"
+                            style="width: 100%; height: 250px; object-fit: cover; object-position: center top;">
+                        <div
+                            style="position: absolute; top: 15px; left: 15px; background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                            🔨 建設・リフォーム
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: var(--text);">匠建設 -TAKUMI-</h3>
+                        <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px; line-height: 1.6;">
+                            「信頼感」「地域密着」をテーマにした外壁塗装・リフォーム業ポータル。Before/Afterの施工事例スライダーや見積もりシミュレーションへの導線など、反響率を高める要素を網羅。
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">王道コーポレート</span>
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">施工事例Before/After</span>
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">無料見積りCTA</span>
+                        </div>
+                        <a href="https://aochan3628-cmd.github.io/construction-lp/" target="_blank"
+                            class="btn btn-primary" style="width: 100%; text-align: center;">
+                            <i class="fa-solid fa-external-link-alt"></i> デモサイトを見る
+                        </a>
+                    </div>
+                </div>
+
+                <!-- クリニックLP -->
+                <div class="portfolio-item"
+                    style="background: white; border-radius: 20px; box-shadow: var(--shadow); overflow: hidden;">
+                    <div style="position: relative;">
+                        <img src="images/portfolio-clinic.png" alt="あおぞらデンタルクリニック LP"
+                            style="width: 100%; height: 250px; object-fit: cover; object-position: center top;">
+                        <div
+                            style="position: absolute; top: 15px; left: 15px; background: linear-gradient(135deg, #4A90D9, #67B8DE); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                            🏥 クリニック・医療
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: var(--text);">あおぞらデンタルクリニック</h3>
+                        <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px; line-height: 1.6;">
+                            「清潔感」「安心感」をテーマにした歯科クリニックLP。STORES予約風のカレンダーUI、診療時間表、院内写真ギャラリーなど医療系に必要な要素を網羅。
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">清潔感デザイン</span>
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">予約カレンダーUI</span>
+                            <span
+                                style="background: #f0f0f0; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem;">診療時間表</span>
+                        </div>
+                        <a href="https://aochan3628-cmd.github.io/clinic-lp/" target="_blank" class="btn btn-primary"
+                            style="width: 100%; text-align: center;">
+                            <i class="fa-solid fa-external-link-alt"></i> デモサイトを見る
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: #666; margin-bottom: 20px;">ココナラのポートフォリオでも他の制作事例をご覧いただけます</p>
+                <a href="https://coconala.com/users/5311104/portfolios" target="_blank" class="btn btn-outline">
+                    <i class="fa-solid fa-image"></i> ココナラのポートフォリオを見る
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container text-center">
+            <h2>まずはお気軽にご相談ください</h2>
+            <p>「こんなこともお願いできる？」など、何でもお聞きください。</p>
+            <a href="https://coconala.com/users/5311104" target="_blank" class="btn btn-primary btn-large"><i
+                    class="fa-solid fa-envelope"></i> ココナラで相談する →</a>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo"><img src="images/logo-bluelife.png" alt="Blue Life" style="height: 40px;">
+                </div>
+                <p class="footer-desc">Webが苦手な店長様の「右腕」として、Googleマップ運用をサポートします。</p>
+            </div>
+            <div class="footer-nav">
+                <h4>ページ</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">サービス・料金</a></li>
+                    <li><a href="portfolio.html">実績・サンプル</a></li>
+                    <li><a href="profile.html">事業概要</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <h4>お問い合わせ</h4>
+                <ul class="footer-links">
+                    <li><a href="https://coconala.com/users/5311104" target="_blank">ココナラで相談する</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Blue Life. All rights reserved.</p>
+            <p class="footer-notice">※当サイトのサービス決済はすべてココナラ経由で行います</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navList').classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

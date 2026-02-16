@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Googleマップ運用代行のサービス内容と料金。月額10,000円の基本プランで口コミ返信・投稿・レポートをおまかせ。LP制作などのオプションも充実。">
+    <title>サービス・料金 | Blue Life</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo"><img src="images/logo-bluelife.png" alt="Blue Life"
+                    style="height: 45px; vertical-align: middle;"></a>
+            <nav class="nav">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html" class="active">サービス・料金</a></li>
+                    <li><a href="portfolio.html">実績・サンプル</a></li>
+                    <li><a href="profile.html">事業概要</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+                <a href="https://coconala.com/users/5311104" target="_blank" class="btn btn-primary"><i
+                        class="fa-solid fa-envelope"></i> ココナラで相談する</a>
+                <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ページヘッダー -->
+    <section class="page-header"
+        style="background: var(--hero-overlay), url('images/hero-bg.png'); background-size: cover; background-position: center; padding: 100px 20px; text-align: center; color: white;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 15px;">サービス・料金</h1>
+        <p style="font-size: 1.1rem; opacity: 0.9;">あなたのお店に合ったプランをお選びください</p>
+    </section>
+
+    <!-- 料金プラン（基本プラン＋オプション一体化） -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>料金プラン</h2>
+                <p>シンプルな月額プラン＋必要なオプションを自由に組み合わせ</p>
+            </div>
+
+            <!-- ベースプラン -->
+            <div
+                style="max-width: 800px; margin: 0 auto 40px; background: white; border-radius: 20px; box-shadow: var(--shadow-hover); overflow: hidden; border: 3px solid var(--accent); position: relative;">
+                <div
+                    style="position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 6px 25px; border-radius: 0 0 15px 15px; font-weight: 700; font-size: 0.85rem;">
+                    基本プラン</div>
+                <div style="background: var(--primary); color: white; padding: 40px 30px 25px; text-align: center;">
+                    <h3 style="color: white; font-size: 1.5rem; margin-bottom: 5px;"><i class="fa-solid fa-star"
+                            style="color: #f39c12;"></i> Googleマップ運用代行</h3>
+                    <p style="color: rgba(255,255,255,0.85); margin: 5px 0 15px; font-size: 0.95rem;">競合と同等の内容を、よりお得な価格で
+                    </p>
+                    <div style="font-size: 3.2rem; font-weight: 900;">10,000<span
+                            style="font-size: 1.1rem; font-weight: 500;">円/月（税抜）</span></div>
+                </div>
+                <div style="padding: 30px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 12px; font-size: 0.95rem;"><i
+                                    class="fa-solid fa-gift" style="margin-right: 6px;"></i>初期施策（契約時）</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 5px 0; font-size: 0.92rem;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 8px;"></i>550日データ分析</li>
+                                <li style="padding: 5px 0; font-size: 0.92rem;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 8px;"></i>競合分析</li>
+                                <li style="padding: 5px 0; font-size: 0.92rem;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 8px;"></i>基本情報整備</li>
+                                <li style="padding: 5px 0; font-size: 0.92rem;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 8px;"></i>スパム監視設定</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 12px; font-size: 0.95rem;"><i
+                                    class="fa-solid fa-sync" style="margin-right: 6px;"></i>月次運用</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 5px 0; font-size: 0.92rem;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 8px;"></i>口コミ返信（月6件まで）</li>
+                                <li style="padding: 5px 0; font-size: 0.92rem;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 8px;"></i>集客投稿（月2回まで）</li>
+                                <li style="padding: 5px 0; font-size: 0.92rem;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 8px;"></i>月次レポート送付</li>
+                                <li style="padding: 5px 0; font-size: 0.92rem;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 8px;"></i>チャット相談無制限</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div
+                        style="background: #f8f9fa; padding: 15px 20px; border-radius: 10px; margin-top: 20px; text-align: center;">
+                        <p style="margin: 0; color: #666; font-size: 0.92rem;"><i class="fa-solid fa-info-circle"
+                                style="color: var(--primary); margin-right: 4px;"></i>
+                            競合他社（月額12,000円〜）と同じ内容を、<strong style="color: var(--accent);">データ分析付きで1万円</strong>でご提供！</p>
+                    </div>
+                    <a href="https://coconala.com/users/5311104" target="_blank" class="btn btn-primary"
+                        style="width: 100%; margin-top: 20px; padding: 16px; justify-content: center;"><i
+                            class="fa-solid fa-envelope"></i> このプランで相談する</a>
+                </div>
+            </div>
+
+            <!-- オプション導入 -->
+            <div style="text-align: center; margin: 50px 0 30px;">
+                <div
+                    style="display: inline-flex; align-items: center; gap: 15px; background: var(--bg-light); padding: 12px 30px; border-radius: 50px;">
+                    <i class="fa-solid fa-puzzle-piece" style="color: var(--accent); font-size: 1.2rem;"></i>
+                    <span style="font-weight: 700; color: var(--primary); font-size: 1.05rem;">基本プランに追加できるオプション</span>
+                </div>
+            </div>
+
+            <!-- オプショングリッド -->
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto;">
+                <div
+                    style="background: white; border-radius: 15px; box-shadow: var(--shadow); padding: 22px; border-left: 4px solid #e74c3c;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h4 style="margin: 0; font-size: 1rem;"><i class="fa-solid fa-globe"
+                                style="color: #e74c3c; margin-right: 8px;"></i>簡易LP制作</h4>
+                        <span
+                            style="background: #e74c3c; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 700;">15,000円</span>
+                    </div>
+                    <p style="color: #666; font-size: 0.85rem; margin: 0;">スマホ特化の縦長Webページ制作。MEO契約中は維持費0円。</p>
+                </div>
+                <div
+                    style="background: white; border-radius: 15px; box-shadow: var(--shadow); padding: 22px; border-left: 4px solid var(--primary);">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h4 style="margin: 0; font-size: 1rem;"><i class="fa-solid fa-chart-line"
+                                style="color: var(--primary); margin-right: 8px;"></i>投稿頻度UP（週1）</h4>
+                        <span
+                            style="background: var(--primary); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 700;">+5,000円/月</span>
+                    </div>
+                    <p style="color: #666; font-size: 0.85rem; margin: 0;">投稿を月2回→月4回に増量。反応の良い曜日に狙い撃ち。</p>
+                </div>
+                <div
+                    style="background: white; border-radius: 15px; box-shadow: var(--shadow); padding: 22px; border-left: 4px solid var(--success);">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h4 style="margin: 0; font-size: 1rem;"><i class="fa-solid fa-comments"
+                                style="color: var(--success); margin-right: 8px;"></i>口コミ返信枠追加</h4>
+                        <span
+                            style="background: var(--success); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 700;">+5,000円/月</span>
+                    </div>
+                    <p style="color: #666; font-size: 0.85rem; margin: 0;">丁寧な返信を10件追加。炎上防止のトーン＆マナー設計込み。</p>
+                </div>
+                <div
+                    style="background: white; border-radius: 15px; box-shadow: var(--shadow); padding: 22px; border-left: 4px solid #9b59b6;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h4 style="margin: 0; font-size: 1rem;"><i class="fa-solid fa-rocket"
+                                style="color: #9b59b6; margin-right: 8px;"></i>露出ブースト</h4>
+                        <span
+                            style="background: #9b59b6; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 700;">10,000円</span>
+                    </div>
+                    <p style="color: #666; font-size: 0.85rem; margin: 0;">エキテン等への登録代行やNAP統一。内部スコアの底上げ。</p>
+                </div>
+                <div
+                    style="background: white; border-radius: 15px; box-shadow: var(--shadow); padding: 22px; border-left: 4px solid #f39c12;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h4 style="margin: 0; font-size: 1rem;"><i class="fa-solid fa-image"
+                                style="color: #f39c12; margin-right: 8px;"></i>写真・画像最適化</h4>
+                        <span
+                            style="background: #f39c12; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 700;">4,000円</span>
+                    </div>
+                    <p style="color: #666; font-size: 0.85rem; margin: 0;">写真選定・明るさ調整・リサイズ（10枚まで）。</p>
+                </div>
+                <div
+                    style="background: white; border-radius: 15px; box-shadow: var(--shadow); padding: 22px; border-left: 4px solid #17a2b8;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h4 style="margin: 0; font-size: 1rem;"><i class="fa-solid fa-binoculars"
+                                style="color: #17a2b8; margin-right: 8px;"></i>競合徹底マーク</h4>
+                        <span
+                            style="background: #17a2b8; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 700;">+3,000円/月</span>
+                    </div>
+                    <p style="color: #666; font-size: 0.85rem; margin: 0;">競合1社の動き（投稿・口コミ増減）を月次レポートに追記。</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px; color: #999; font-size: 0.9rem;">
+                ※上記にないものでも、お気軽にご相談ください。「こんなこともできる？」に柔軟にお応えします。
+            </p>
+        </div>
+    </section>
+
+    <!-- データ分析レポート（単体サービス） -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-magnifying-glass-chart" style="color: #2196F3;"></i> データ分析レポート</h2>
+                <p>MEO契約の有無に関わらず、どなたでもご利用いただけます</p>
+            </div>
+
+            <div
+                style="max-width: 700px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: var(--shadow-hover); overflow: hidden; border: 3px solid #2196F3;">
+                <div
+                    style="background: linear-gradient(135deg, #1565C0, #2196F3); padding: 30px; color: white; text-align: center;">
+                    <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 5px;">1回あたり</div>
+                    <div style="font-size: 3rem; font-weight: 900;">8,000<span
+                            style="font-size: 1rem; font-weight: 500;">円（税込）</span></div>
+                </div>
+                <div style="padding: 30px;">
+                    <p style="font-size: 1rem; color: var(--text); margin-bottom: 20px; line-height: 1.8;">
+                        売上データ・予約データ・顧客リストなど、お手持ちのExcel/CSVデータをお預かりし、<strong>プロの視点で徹底分析</strong>。
+                        グラフ付きレポートと<strong>「明日からできる」具体的な改善アクション</strong>を納品します。
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px; font-size: 0.95rem;"><i
+                                    class="fa-solid fa-file-lines" style="margin-right: 6px;"></i>納品物</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                                <li style="padding: 4px 0;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 6px;"></i>分析レポート（PDF 5〜10ページ）</li>
+                                <li style="padding: 4px 0;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 6px;"></i>グラフ・図表で可視化</li>
+                                <li style="padding: 4px 0;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 6px;"></i>改善アクション 3〜5つ</li>
+                                <li style="padding: 4px 0;"><i class="fa-solid fa-check"
+                                        style="color: var(--success); margin-right: 6px;"></i>エグゼクティブサマリー</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px; font-size: 0.95rem;"><i
+                                    class="fa-solid fa-database" style="margin-right: 6px;"></i>対応データ例</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                                <li style="padding: 4px 0;"><i class="fa-solid fa-check"
+                                        style="color: #2196F3; margin-right: 6px;"></i>売上・POSデータ</li>
+                                <li style="padding: 4px 0;"><i class="fa-solid fa-check"
+                                        style="color: #2196F3; margin-right: 6px;"></i>予約・来店データ</li>
+                                <li style="padding: 4px 0;"><i class="fa-solid fa-check"
+                                        style="color: #2196F3; margin-right: 6px;"></i>顧客リスト・会員データ</li>
+                                <li style="padding: 4px 0;"><i class="fa-solid fa-check"
+                                        style="color: #2196F3; margin-right: 6px;"></i>問い合わせ・反響データ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p
+                        style="background: #e3f2fd; padding: 12px 15px; border-radius: 10px; font-size: 0.9rem; color: #1565C0; margin-bottom: 20px;">
+                        <i class="fa-solid fa-clock" style="margin-right: 6px;"></i><strong>納期：</strong>データ受領後 3〜5営業日
+                    </p>
+                    <div style="text-align: center;">
+                        <a href="https://coconala.com/users/5311104" target="_blank"
+                            class="btn btn-primary btn-large">データ分析を依頼する <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ご利用の流れ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>ご利用の流れ</h2>
+                <p>ココナラを通じて安心・安全にお取引いただけます</p>
+            </div>
+
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="number">1</div>
+                    <div class="icon-wrapper"><i class="fa-solid fa-comments"></i></div>
+                    <h3>ココナラで相談</h3>
+                    <p>「こんなことをお願いしたい」とお気軽にメッセージください。お見積もりは無料です。</p>
+                </div>
+                <div class="reason-card">
+                    <div class="number">2</div>
+                    <div class="icon-wrapper"><i class="fa-solid fa-file-contract"></i></div>
+                    <h3>プラン決定・購入</h3>
+                    <p>ご要望に合わせてプランをご提案。ご納得いただけたらココナラで購入手続きを行います。</p>
+                </div>
+                <div class="reason-card">
+                    <div class="number">3</div>
+                    <div class="icon-wrapper"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>作業開始</h3>
+                    <p>必要な情報をいただいたら作業開始。進捗はこまめにご報告します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container text-center">
+            <h2>まずは無料相談から</h2>
+            <p>「自分のお店に合うプランはどれ？」など、何でもお聞きください。</p>
+            <a href="https://coconala.com/users/5311104" target="_blank" class="btn btn-primary btn-large"><i
+                    class="fa-solid fa-envelope"></i> ココナラで相談する →</a>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo"><img src="images/logo-bluelife.png" alt="Blue Life" style="height: 40px;">
+                </div>
+                <p class="footer-desc">Webが苦手な店長様の「右腕」として、Googleマップ運用をサポートします。</p>
+            </div>
+            <div class="footer-nav">
+                <h4>ページ</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">サービス・料金</a></li>
+                    <li><a href="portfolio.html">実績・サンプル</a></li>
+                    <li><a href="profile.html">事業概要</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <h4>お問い合わせ</h4>
+                <ul class="footer-links">
+                    <li><a href="https://coconala.com/users/5311104" target="_blank">ココナラで相談する</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Blue Life. All rights reserved.</p>
+            <p class="footer-notice">※当サイトのサービス決済はすべてココナラ経由で行います</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navList').classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
