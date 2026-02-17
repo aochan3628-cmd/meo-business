@@ -316,19 +316,13 @@ img {
 
 .hero-accent {
     color: var(--gold);
-    position: relative;
-}
-
-.hero-accent::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--gold);
-    opacity: 0.3;
-    border-radius: 2px;
+    background-image: linear-gradient(rgba(218, 165, 32, 0.3), rgba(218, 165, 32, 0.3));
+    background-position: 0 calc(100% - 2px);
+    background-repeat: no-repeat;
+    background-size: 100% 4px;
+    padding-bottom: 4px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
 .hero-sub {
