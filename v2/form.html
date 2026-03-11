@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="建設業専門のGoogleマップ運用代行サービス「Blue Life」の無料診断。会社名・業種・お悩みを送信するだけ。24時間以内にご返信します。">
+    <title>無料Googleマップ診断｜Blue Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="liftkit-base/liftkitvars.css">
+    <link rel="stylesheet" href="liftkit-base/liftkit-core.css">
+    <link rel="stylesheet" href="style-golden.css">
+    <style>
+        /* ━━━ カスタムフォームスタイル ━━━ */
+        .form-container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius, 16px);
+            padding: 2.5rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            background: linear-gradient(135deg, #c8a45a, #e8c97a);
+            color: #1a1a2e;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .form-group label .optional {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.75rem;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="url"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1.1rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Noto Sans JP', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #c8a45a;
+            box-shadow: 0 0 0 3px rgba(200, 164, 90, 0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23c8a45a' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+
+        .form-group select option {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* チェックボックスグリッド */
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.7rem 1rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(200, 164, 90, 0.08);
+            border-color: rgba(200, 164, 90, 0.3);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            cursor: pointer;
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .checkbox-item input[type="checkbox"]:checked {
+            background: linear-gradient(135deg, #c8a45a, #e8c97a);
+            border-color: #c8a45a;
+        }
+
+        .checkbox-item input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #1a1a2e;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .checkbox-item span {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+        }
+
+        /* 送信ボタン */
+        .form-submit-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            width: 100%;
+            padding: 1.1rem;
+            background: linear-gradient(135deg, #c8a45a, #e8c97a);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Noto Sans JP', sans-serif;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 1.5rem;
+        }
+
+        .form-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(200, 164, 90, 0.3);
+        }
+
+        .form-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-notes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-notes span i {
+            color: #c8a45a;
+            margin-right: 4px;
+        }
+
+        /* 送信完了メッセージ */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .form-success .success-icon {
+            font-size: 3rem;
+            color: #c8a45a;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-success h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .form-success p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        /* 特典バッジ */
+        .form-benefit {
+            background: linear-gradient(135deg, rgba(200, 164, 90, 0.15), rgba(200, 164, 90, 0.05));
+            border: 1px solid rgba(200, 164, 90, 0.3);
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-benefit p {
+            color: #e8c97a;
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .form-benefit small {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ━━━ Navigation ━━━ -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><i class="fa-solid fa-map-location-dot"></i> Blue
+                <span>Life</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="service.html">サービス・料金</a></li>
+                <li><a href="portfolio.html">実績</a></li>
+                <li><a href="profile.html">事業概要</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+            <a href="https://coconala.com/users/5311104" target="_blank" class="nav-cta">無料相談 <i
+                    class="fa-solid fa-arrow-right"></i></a>
+            <button class="nav-toggle" id="navToggle" aria-label="メニュー"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ━━━ HERO ━━━ -->
+    <header class="page-hero page-hero--tall" style="background-image:url('images/hero-contact.jpg');">
+        <div class="page-hero-eyebrow"><i class="fa-solid fa-magnifying-glass-chart"></i> FREE DIAGNOSIS</div>
+        <h1>あなたのGoogleマップ、<br><span class="highlight">無料で診断します</span></h1>
+        <p>会社名・業種・お悩みを送信するだけ。<br>プロの目で現状把握 + 改善ポイントをお伝えします。</p>
+    </header>
+
+    <!-- ━━━ フォーム ━━━ -->
+    <section class="section section--dark" id="form-section">
+        <div class="container">
+            <div class="form-container">
+
+                <div class="form-benefit">
+                    <p><i class="fa-solid fa-gift"></i> 今なら無料で診断レポートをお届け</p>
+                    <small>通常24時間以内にご返信します</small>
+                </div>
+
+                <div class="form-card" id="formCard">
+                    <form id="diagnosisForm" action="https://formsubmit.co/bluelife.meo@gmail.com" method="POST">
+                        <!-- FormSubmit設定 -->
+                        <input type="hidden" name="_subject" value="【Blue Life】無料診断の申し込みがありました">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="">
+                        <input type="text" name="_honey" style="display:none">
+
+                        <div class="form-group">
+                            <label>お名前（ご担当者様）<span class="required">必須</span></label>
+                            <input type="text" name="name" placeholder="例：青木 太郎" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>会社名（屋号）<span class="required">必須</span></label>
+                            <input type="text" name="company" placeholder="例：○○建設 / ○○工務店" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>業種<span class="required">必須</span></label>
+                            <select name="industry" required>
+                                <option value="" disabled selected>選択してください</option>
+                                <option value="ガラス工事">ガラス工事</option>
+                                <option value="外壁工事">外壁工事</option>
+                                <option value="塗装業">塗装業</option>
+                                <option value="リフォーム">リフォーム</option>
+                                <option value="防水・屋根工事">防水・屋根工事</option>
+                                <option value="建築・内装">建築・内装</option>
+                                <option value="エクステリア・造園">エクステリア・造園</option>
+                                <option value="その他の建設業">その他の建設業</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>メールアドレス<span class="required">必須</span></label>
+                            <input type="email" name="email" placeholder="例：info@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>電話番号<span class="optional">任意</span></label>
+                            <input type="tel" name="phone" placeholder="例：090-1234-5678">
+                        </div>
+
+                        <div class="form-group">
+                            <label>GoogleマップのURL<span class="optional">任意・わかれば</span></label>
+                            <input type="url" name="google_maps_url" placeholder="https://maps.google.com/...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>現在のお悩み（複数選択可）</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="concerns" value="口コミへの返信ができていない">
+                                    <span>口コミへの返信ができていない</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="concerns" value="Googleマップの検索順位が低い">
+                                    <span>Googleマップの検索順位が低い</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="concerns" value="投稿（最新情報）を更新できていない">
+                                    <span>投稿（最新情報）を更新できていない</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="concerns" value="写真が少ない・古い">
+                                    <span>写真が少ない・古い</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="concerns" value="ネガティブな口コミが気になる">
+                                    <span>ネガティブな口コミが気になる</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="concerns" value="競合に負けている">
+                                    <span>競合に負けている</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="concerns" value="そもそも何をすればいいかわからない">
+                                    <span>そもそも何をすればいいかわからない</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>その他ご質問やご要望<span class="optional">任意</span></label>
+                            <textarea name="message" placeholder="自由にご記入ください"></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit-btn" id="submitBtn">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            無料診断を申し込む
+                        </button>
+
+                        <div class="form-notes">
+                            <span><i class="fa-solid fa-circle-check"></i> 営業一切なし</span>
+                            <span><i class="fa-solid fa-circle-check"></i> 24時間以内に返信</span>
+                            <span><i class="fa-solid fa-circle-check"></i> 診断だけでもOK</span>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 送信完了メッセージ -->
+                <div class="form-success" id="formSuccess">
+                    <div class="form-card">
+                        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <h3>送信ありがとうございます！</h3>
+                        <p>
+                            無料診断のお申し込みを受け付けました。<br>
+                            <strong>通常24時間以内</strong>にメールでご返信いたします。<br><br>
+                            しばらくお待ちくださいませ。
+                        </p>
+                        <a href="index.html" class="btn-ghost" style="margin-top: 2rem; display: inline-flex;">
+                            <i class="fa-solid fa-arrow-left"></i> トップページに戻る
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ━━━ FOOTER ━━━ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo"><i class="fa-solid fa-map-location-dot"></i> Blue <span>Life</span></div>
+                <p>建設業専門・あなたの会社の「右腕」として<br>Googleマップ運用をサポートします。<br>全国対応・オンライン完結。</p>
+            </div>
+            <div class="footer-nav-group">
+                <h4>ページ</h4>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">サービス・料金</a></li>
+                    <li><a href="portfolio.html">実績・サンプル</a></li>
+                    <li><a href="profile.html">事業概要</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav-group">
+                <h4>お問い合わせ</h4>
+                <ul>
+                    <li><a href="https://coconala.com/users/5311104" target="_blank"><i
+                                class="fa-solid fa-external-link-alt"></i> ココナラで相談する</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Blue Life. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Nav scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+
+        // Mobile menu
+        document.getElementById('navToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.form-card, .form-benefit').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
