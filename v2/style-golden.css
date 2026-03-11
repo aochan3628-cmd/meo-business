@@ -3165,8 +3165,4 @@ td.compare-label {
         gap: var(--lk-size-md);
     }
 
-    .sim-image-wrap {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-}
+    .sim-image
