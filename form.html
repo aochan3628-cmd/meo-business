@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="建設業・工務店向けGoogleマップ無料診断のお申し込みフォーム。現在のGoogleマップの状態を診断し、改善ポイントを無料でお伝えします。">
+    <title>無料診断・お問い合わせ | Blue Life【建設業専門 Googleマップ運用代行】</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-section {
+            padding: 80px 20px;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 50px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            background: var(--accent);
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+
+        .form-group label .optional {
+            background: #aaa;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: var(--font-main);
+            color: var(--text);
+            transition: border-color 0.2s;
+            background: #fafafa;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            cursor: pointer;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .form-submit .btn {
+            min-width: 260px;
+            font-size: 1.1rem;
+        }
+
+        .form-note {
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .reassurance-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #f0f7ff;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-bottom: 40px;
+        }
+
+        .reassurance-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .reassurance-list li i {
+            color: var(--success);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .coconala-alt {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .coconala-alt p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo"><i class="fa-solid fa-map-location-dot"></i> Blue <span>Life</span></a>
+            <nav class="nav">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">サービス・料金</a></li>
+                    <li><a href="portfolio.html">実績・サンプル</a></li>
+                    <li><a href="profile.html">事業概要</a></li>
+                </ul>
+                <a href="form.html" class="btn btn-primary active"><i class="fa-solid fa-clipboard-check"></i> 無料診断を受ける</a>
+                <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ページヘッダー -->
+    <section class="page-header"
+        style="background: var(--hero-overlay), url('images/hero-bg.png'); background-size: cover; background-position: center; padding: 100px 20px; text-align: center; color: white;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 15px;">無料診断・お問い合わせ</h1>
+        <p style="font-size: 1.1rem; opacity: 0.9;">貴社のGoogleマップの現状を診断し、改善ポイントをお伝えします</p>
+    </section>
+
+    <!-- フォームセクション -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-card">
+
+                <ul class="reassurance-list">
+                    <li><i class="fa-solid fa-circle-check"></i> 診断・相談は完全無料です</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 無理な勧誘は一切いたしません</li>
+                    <li><i class="fa-solid fa-circle-check"></i> ご契約はご納得いただけた場合のみ</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 通常1営業日以内にご返信します</li>
+                </ul>
+
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="company">会社名・屋号 <span class="required">必須</span></label>
+                        <input type="text" id="company" name="company" placeholder="例：〇〇工務店、〇〇建設" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">ご担当者名 <span class="required">必須</span></label>
+                        <input type="text" id="name" name="name" placeholder="例：青木 航太" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">メールアドレス <span class="required">必須</span></label>
+                        <input type="email" id="email" name="email" placeholder="例：info@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">電話番号 <span class="optional">任意</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="例：090-0000-0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="area">所在地（都道府県） <span class="required">必須</span></label>
+                        <select id="area" name="area" required>
+                            <option value="">選択してください</option>
+                            <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option>
+                            <option>秋田県</option><option>山形県</option><option>福島県</option><option>茨城県</option>
+                            <option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option>
+                            <option>東京都</option><option>神奈川県</option><option>新潟県</option><option>富山県</option>
+                            <option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option>
+                            <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                            <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option>
+                            <option>奈良県</option><option>和歌山県</option><option>鳥取県</option><option>島根県</option>
+                            <option>岡山県</option><option>広島県</option><option>山口県</option><option>徳島県</option>
+                            <option>香川県</option><option>愛媛県</option><option>高知県</option><option>福岡県</option>
+                            <option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option>
+                            <option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="business">主な事業内容 <span class="required">必須</span></label>
+                        <select id="business" name="business" required>
+                            <option value="">選択してください</option>
+                            <option>工務店・住宅建築</option>
+                            <option>外壁塗装・屋根工事</option>
+                            <option>内装リフォーム</option>
+                            <option>土木・造成工事</option>
+                            <option>電気・設備工事</option>
+                            <option>解体工事</option>
+                            <option>その他建設業</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gbp">GoogleマップのURL <span class="optional">任意</span></label>
+                        <input type="url" id="gbp" name="gbp" placeholder="https://maps.google.com/... （診断に使用します）">
+                        <p style="font-size: 0.85rem; color: #888; margin-top: 6px;">※Googleマップで貴社を検索し、「共有」からURLをコピーして貼り付けてください</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">現在のお悩み・ご質問 <span class="optional">任意</span></label>
+                        <textarea id="message" name="message" placeholder="例：口コミへの返信ができていない、施工事例の投稿を増やしたい、Googleマップで上位に出したいなど、お気軽にご記入ください"></textarea>
+                    </div>
+
+                    <!-- ハニーポット（スパム対策：人には見えない） -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <p style="font-size: 0.85rem; color: #888; text-align: center; margin-top: 10px; margin-bottom: 5px; line-height: 1.7;">
+                        ご入力いただいた情報は、お問い合わせへの対応目的のみに使用します。<br>
+                        第三者への提供・営業目的での利用は行いません。
+                    </p>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+                            <i class="fa-solid fa-clipboard-check"></i> 無料診断を受ける
+                        </button>
+                    </div>
+                    <p class="form-note">送信後、通常1営業日以内にメールにてご返信します。</p>
+                </form>
+
+                <div class="coconala-alt">
+                    <p>すぐにチャットで相談したい方はこちらから</p>
+                    <a href="https://coconala.com/users/1638958" target="_blank" class="btn btn-outline">
+                        <i class="fa-solid fa-comments"></i> ココナラで直接相談する
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo"><i class="fa-solid fa-map-location-dot"></i> Blue <span>Life</span></div>
+                <p class="footer-desc">建設業・工務店専門のGoogleマップ（MEO）運用代行。<br>現場が忙しいオーナー様の「Web担当」として丸ごとサポートします。</p>
+            </div>
+            <div class="footer-nav">
+                <h4>ページ</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">サービス・料金</a></li>
+                    <li><a href="portfolio.html">実績・サンプル</a></li>
+                    <li><a href="profile.html">事業概要</a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <h4>お問い合わせ</h4>
+                <ul class="footer-links">
+                    <li><a href="form.html">無料診断・お問い合わせ</a></li>
+                    <li><a href="https://coconala.com/users/1638958" target="_blank">ココナラで相談する</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Blue Life. All rights reserved.</p>
+            <p class="footer-notice">※当サイトのサービス決済はすべてココナラ経由で行います</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navList').classList.toggle('active');
+        }
+
+        // =====================================================
+        // フォーム送信処理（Formspree使用）
+        // 使い方:
+        //   1. https://formspree.io でアカウント作成（無料）
+        //   2. 新規フォームを作成し、フォームIDを取得
+        //   3. 下記 FORMSPREE_ENDPOINT の "YOUR_FORM_ID" を置き換える
+        //
+        // 例: const FORMSPREE_ENDPOINT = 'https://formspree.io/f/abcd1234';
+        // =====================================================
+        const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+        // 日本語バリデーションメッセージの設定
+        const validationMessages = {
+            company:  { valueMissing: '会社名または屋号を入力してください' },
+            name:     { valueMissing: '担当者名を入力してください' },
+            email:    { valueMissing: 'メールアドレスを入力してください', typeMismatch: 'メールアドレスの形式が正しくありません（例：info@example.com）' },
+            area:     { valueMissing: '所在地（都道府県）を選択してください' },
+            business: { valueMissing: '主な事業内容を選択してください' },
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            Object.entries(validationMessages).forEach(([id, messages]) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.addEventListener('invalid', function () {
+                    if (this.validity.valueMissing)   this.setCustomValidity(messages.valueMissing  || '');
+                    else if (this.validity.typeMismatch) this.setCustomValidity(messages.typeMismatch || '');
+                    else this.setCustomValidity('');
+                });
+                // 入力・変更時にエラー表示をリセット
+                el.addEventListener('input',  function () { this.setCustomValidity(''); });
+                el.addEventListener('change', function () { this.setCustomValidity(''); });
+            });
+        });
+
+        async function handleSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const originalHTML = submitBtn.innerHTML;
+
+            // 未設定チェック（開発者向け案内）
+            if (FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')) {
+                alert('【設定が必要です】\nform.html 内の FORMSPREE_ENDPOINT にFormspreeのフォームIDを設定してください。\n\nhttps://formspree.io でアカウント作成後、フォームIDを取得できます。');
+                return;
+            }
+
+            // 二重送信を防止
+            submitBtn.disabled = true;
+            submitBtn.style.pointerEvents = 'none';
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 送信中...';
+
+            try {
+                const data = new FormData(form);
+                const response = await fetch(FORMSPREE_ENDPOINT, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    // 送信成功：フォームをサンクスメッセージに差し替え
+                    form.innerHTML = `
+                        <div style="text-align:center; padding: 60px 20px;">
+                            <i class="fa-solid fa-circle-check" style="font-size:4rem; color:var(--success); margin-bottom:20px; display:block;"></i>
+                            <h3 style="font-size:1.8rem; color:var(--primary); margin-bottom:15px;">送信が完了しました</h3>
+                            <p style="color:#555; line-height:1.9; margin-bottom:30px;">
+                                お問い合わせありがとうございます。<br>
+                                内容を確認のうえ、<strong>通常1営業日以内</strong>にご登録のメールアドレスへご返信します。<br>
+                                <span style="font-size:0.9rem; color:#888;">返信が届かない場合は、迷惑メールフォルダもご確認ください。</span>
+                            </p>
+                            <a href="index.html" class="btn btn-outline">トップページに戻る</a>
+                        </div>
+                    `;
+                } else {
+                    throw new Error('server_error');
+                }
+            } catch (err) {
+                // エラー時：ボタンを元に戻す
+                submitBtn.disabled = false;
+                submitBtn.style.pointerEvents = '';
+                submitBtn.innerHTML = originalHTML;
+                alert('送信中にエラーが発生しました。\nお手数ですが、時間をおいて再度お試しいただくか、ページ下部のococonalaよりご連絡ください。');
+            }
+        }
+    </script>
+</body>
+
+</html>
