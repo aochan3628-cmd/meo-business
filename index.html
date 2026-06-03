@@ -1,553 +1,1289 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="建設業のGoogleマップ運用、放置していませんか？口コミ返信・投稿・レポートまで月額10,000円〜でプロが代行。ガラス工事・外壁・塗装・リフォーム業に特化。">
-    <title>Blue Life｜建設業専門 Googleマップ運用代行</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="liftkit-base/liftkitvars.css">
-    <link rel="stylesheet" href="liftkit-base/liftkit-core.css">
-    <link rel="stylesheet" href="style-golden.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blue Life | 反響・現調管理シート うけメモ</title>
+  <link rel="icon" type="image/png" href="blue-life-logo-mark-32.png">
+  <link rel="apple-touch-icon" href="blue-life-logo-mark-180.png">
+  <script>document.documentElement.classList.add("js-enabled");</script>
+  <style>
+    :root {
+      --ink: #071523;
+      --navy: #08224a;
+      --deep: #04152d;
+      --blue: #2f7db5;
+      --sky: #dff2fb;
+      --aqua: #83d2ef;
+      --line: #06c755;
+      --paper: #ffffff;
+      --mist: #f4f8fb;
+      --warm: #fff6d8;
+      --warning: #ffcf54;
+      --muted: #596879;
+      --border: #d8e5ef;
+      --shadow: 0 24px 70px rgba(7, 21, 35, 0.16);
+      --strong-shadow: 0 34px 100px rgba(4, 21, 45, 0.34);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      line-height: 1.72;
+      letter-spacing: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(131, 210, 239, 0.22), transparent 32rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fbfd 46%, #ffffff 100%);
+    }
+
+    a { color: inherit; }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(216, 229, 239, 0.82);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid rgba(8, 34, 74, 0.1);
+      box-shadow: 0 12px 26px rgba(47, 125, 181, 0.12);
+      overflow: hidden;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text {
+      display: grid;
+      line-height: 1.12;
+      font-size: 15px;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #526579;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .nav-cta,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      white-space: nowrap;
+    }
+
+    .nav-cta,
+    .btn-primary {
+      color: #fff;
+      background: var(--line);
+      box-shadow: 0 16px 34px rgba(6, 199, 85, 0.24);
+    }
+
+    .btn-primary:hover,
+    .nav-cta:hover,
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      color: #fff;
+      background: var(--navy);
+      box-shadow: 0 18px 42px rgba(8, 34, 74, 0.2);
+    }
+
+    .btn-ghost {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-light {
+      color: var(--navy);
+      background: #fff;
+      border-color: rgba(8, 34, 74, 0.14);
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      color: #fff;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 82% 22%, rgba(131, 210, 239, 0.25), transparent 24rem),
+        radial-gradient(circle at 15% 16%, rgba(47, 125, 181, 0.24), transparent 22rem),
+        linear-gradient(135deg, #04101f 0%, #08224a 58%, #0d477e 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 900px;
+      height: 520px;
+      right: -160px;
+      top: 120px;
+      border: 1px solid rgba(131, 210, 239, 0.22);
+      border-left: 0;
+      border-bottom: 0;
+      border-radius: 0 260px 0 0;
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(560px, 1.12fr);
+      gap: 54px;
+      align-items: center;
+      padding: 86px 0 44px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      color: #cbecff;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin: 22px 0 20px;
+      font-size: clamp(42px, 5.4vw, 72px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      color: var(--navy);
+      font-size: clamp(30px, 3.8vw, 48px);
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      color: var(--navy);
+      line-height: 1.38;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      color: #d9e9f8;
+      font-size: 18px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 14px;
+    }
+
+    .kit-section .cta-row,
+    .final-cta .cta-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .micro {
+      margin: 0;
+      color: #bfd6ec;
+      font-size: 13px;
+    }
+
+    .promise-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .promise-line span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      color: #e8f6ff;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .mess-stage {
+      position: relative;
+      min-height: 560px;
+    }
+
+    .sheet-showcase {
+      position: absolute;
+      right: 0;
+      top: 76px;
+      width: min(670px, 100%);
+      transform: rotate(-1.4deg);
+      border-radius: 24px;
+      background: #f8fbff;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      box-shadow: var(--strong-shadow);
+      overflow: hidden;
+      color: var(--ink);
+    }
+
+    .sheet-showcase::before {
+      content: "うけメモ";
+      position: absolute;
+      right: 16px;
+      top: 54px;
+      z-index: 3;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(6, 199, 85, 0.14);
+      color: #047a38;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .window-top {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 14px;
+      background: #dbe8f8;
+      border-bottom: 1px solid #c8d7ea;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #9fb3cc;
+    }
+
+    .shot-img {
+      display: block;
+      width: 100%;
+      border: 1px solid #ccd9ea;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .sheet-body {
+      padding: 18px;
+      background: linear-gradient(180deg, #f8fbff, #fff);
+    }
+
+    .floating-note {
+      position: absolute;
+      z-index: 4;
+      width: 180px;
+      min-height: 82px;
+      padding: 12px;
+      border-radius: 18px;
+      color: var(--navy);
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(131, 210, 239, 0.38);
+      box-shadow: 0 18px 44px rgba(4, 21, 45, 0.18);
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 850;
+      animation: noteFloat 6.5s ease-in-out infinite;
+    }
+
+    .floating-note strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+      color: #2c6e9e;
+    }
+
+    .note-line {
+      position: absolute;
+      z-index: 1;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(131, 210, 239, 0), rgba(131, 210, 239, 0.75), rgba(6, 199, 85, 0.45));
+      transform-origin: left center;
+    }
+
+    .note-a { left: 0; top: 28px; transform: rotate(-4deg); }
+    .note-b { right: 12px; top: 8px; transform: rotate(3deg); animation-delay: 800ms; }
+    .note-c { left: 34px; bottom: 112px; transform: rotate(3deg); animation-delay: 1.2s; }
+    .note-d { right: -6px; bottom: 68px; transform: rotate(-2deg); animation-delay: 1.8s; }
+
+    .line-a { left: 154px; top: 96px; width: 280px; transform: rotate(11deg); }
+    .line-b { right: 150px; top: 96px; width: 220px; transform: rotate(156deg); }
+    .line-c { left: 188px; bottom: 162px; width: 260px; transform: rotate(-13deg); }
+    .line-d { right: 146px; bottom: 130px; width: 230px; transform: rotate(190deg); }
+
+    @keyframes noteFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -9px; }
+    }
+
+    .hero-proof {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      padding-bottom: 48px;
+    }
+
+    .proof-item {
+      min-height: 86px;
+      padding: 16px;
+      border-radius: 18px;
+      color: #e7f4ff;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .proof-item strong {
+      display: block;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .proof-item span {
+      color: #c1d8ef;
+      font-size: 13px;
+    }
+
+    .section {
+      position: relative;
+      padding: 104px 0;
+    }
+
+    .section.soft {
+      background:
+        radial-gradient(circle at 84% 12%, rgba(131, 210, 239, 0.18), transparent 28rem),
+        linear-gradient(180deg, rgba(244, 248, 251, 0.96), rgba(237, 246, 251, 0.96));
+    }
+
+    .section-head {
+      max-width: 800px;
+      margin-bottom: 34px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .pain-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .before-stack,
+    .after-panel {
+      position: relative;
+      min-height: 390px;
+    }
+
+    .pain-card {
+      position: absolute;
+      width: min(280px, 52%);
+      min-height: 120px;
+      padding: 18px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(8, 34, 74, 0.1);
+      box-shadow: 0 18px 46px rgba(7, 21, 35, 0.11);
+    }
+
+    .pain-card strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.45;
+    }
+
+    .pain-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .pain-card:nth-child(1) { left: 0; top: 12px; rotate: -3deg; }
+    .pain-card:nth-child(2) { right: 4px; top: 44px; rotate: 2.5deg; }
+    .pain-card:nth-child(3) { left: 14%; top: 158px; rotate: 1deg; }
+    .pain-card:nth-child(4) { right: 12%; bottom: 12px; rotate: -2deg; }
+
+    .after-panel {
+      padding: 28px;
+      border-radius: 30px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 80% 12%, rgba(6, 199, 85, 0.18), transparent 20rem),
+        linear-gradient(135deg, var(--deep), var(--navy));
+      box-shadow: var(--strong-shadow);
+      overflow: hidden;
+    }
+
+    .after-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      background-size: 38px 38px;
+      pointer-events: none;
+    }
+
+    .after-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .after-panel h3 {
+      color: #fff;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .after-panel p {
+      color: #d6e8f7;
+    }
+
+    .mini-table {
+      display: grid;
+      gap: 9px;
+      margin-top: 24px;
+    }
+
+    .mini-row {
+      display: grid;
+      grid-template-columns: 0.72fr 1fr 0.72fr 0.72fr;
+      gap: 9px;
+    }
+
+    .mini-cell {
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 11px;
+      color: #d9ebfb;
+      background: rgba(255, 255, 255, 0.11);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .mini-row:first-child .mini-cell {
+      color: #09203f;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 44px;
+      align-items: center;
+    }
+
+    .copy-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid rgba(8, 34, 74, 0.1);
+      box-shadow: 0 16px 44px rgba(7, 21, 35, 0.08);
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 25px;
+      color: #344054;
+    }
+
+    .list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      background: var(--blue);
+    }
+
+    .product-shot {
+      position: relative;
+      padding: 20px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(223, 242, 251, 0.96), rgba(255, 255, 255, 0.98));
+      border: 1px solid rgba(47, 125, 181, 0.18);
+      box-shadow: var(--shadow);
+    }
+
+    .product-shot::before {
+      content: "";
+      position: absolute;
+      inset: 34px -18px -18px 52px;
+      z-index: -1;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(47, 125, 181, 0.18), rgba(6, 199, 85, 0.11));
+      rotate: 2deg;
+    }
+
+    .callout {
+      position: absolute;
+      z-index: 2;
+      max-width: 220px;
+      padding: 11px 13px;
+      border-radius: 17px;
+      background: #fff;
+      color: var(--navy);
+      border: 1px solid rgba(47, 125, 181, 0.16);
+      box-shadow: 0 16px 38px rgba(7, 21, 35, 0.12);
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1.5;
+    }
+
+    .callout-a { left: -42px; top: 70px; }
+    .callout-b { right: -34px; bottom: 88px; }
+
+    .screens-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .screen-card {
+      padding: 14px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(8, 34, 74, 0.1);
+      box-shadow: 0 14px 36px rgba(7, 21, 35, 0.08);
+    }
+
+    .screen-card .shot-img {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top left;
+      margin-bottom: 12px;
+    }
+
+    .screen-card strong {
+      display: block;
+      color: var(--navy);
+      line-height: 1.45;
+      margin-bottom: 5px;
+    }
+
+    .screen-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .path {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .path-step {
+      position: relative;
+      min-height: 230px;
+      padding: 24px;
+      border-radius: 26px;
+      background: #fff;
+      border: 1px solid rgba(8, 34, 74, 0.1);
+      box-shadow: 0 16px 44px rgba(7, 21, 35, 0.08);
+    }
+
+    .path-step::before {
+      content: attr(data-step);
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 950;
+    }
+
+    .path-step h3 {
+      margin-bottom: 8px;
+    }
+
+    .path-step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .kit-section {
+      padding: 42px;
+      border-radius: 34px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 86% 8%, rgba(6, 199, 85, 0.2), transparent 20rem),
+        linear-gradient(135deg, var(--deep), var(--navy));
+      box-shadow: var(--strong-shadow);
+      overflow: hidden;
+    }
+
+    .kit-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .kit-section h2 {
+      color: #fff;
+    }
+
+    .kit-section p {
+      color: #d6e8f7;
+    }
+
+    .kit-preview {
+      display: grid;
+      gap: 12px;
+    }
+
+    .kit-item {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      min-height: 86px;
+      padding: 14px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .kit-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: var(--navy);
+      background: #fff;
+      font-weight: 950;
+    }
+
+    .kit-item strong {
+      display: block;
+      color: #fff;
+      line-height: 1.42;
+      margin-bottom: 2px;
+    }
+
+    .kit-item span {
+      color: #c7dcee;
+      font-size: 13px;
+    }
+
+    .partner-grid,
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .quiet-card {
+      padding: 22px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid rgba(8, 34, 74, 0.1);
+      box-shadow: 0 1px 0 rgba(7, 21, 35, 0.04);
+    }
+
+    .quiet-card strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 7px;
+      line-height: 1.45;
+    }
+
+    .quiet-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 170px;
+      aspect-ratio: 1;
+      border-radius: 26px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .final-cta {
+      padding: 42px;
+      border-radius: 34px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 76% 18%, rgba(6, 199, 85, 0.24), transparent 19rem),
+        linear-gradient(135deg, #04152d, #08224a 62%, #0c3e72);
+      box-shadow: var(--strong-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 26px;
+    }
+
+    .final-cta h2 {
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .final-cta p {
+      margin: 0;
+      color: #d7e8f6;
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .sticky-mobile-cta {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+
+      .hero-grid,
+      .pain-board,
+      .showcase,
+      .kit-grid,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        padding-top: 56px;
+      }
+
+      .mess-stage {
+        min-height: auto;
+      }
+
+      .sheet-showcase,
+      .floating-note,
+      .note-line,
+      .pain-card,
+      .callout {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        width: auto;
+        max-width: none;
+        transform: none;
+        rotate: 0deg;
+      }
+
+      .pain-card:nth-child(1),
+      .pain-card:nth-child(2),
+      .pain-card:nth-child(3),
+      .pain-card:nth-child(4) {
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        rotate: 0deg;
+      }
+
+      .sheet-showcase {
+        margin-top: 18px;
+      }
+
+      .floating-note {
+        display: inline-grid;
+        width: calc(50% - 8px);
+        margin: 0 8px 10px 0;
+        vertical-align: top;
+      }
+
+      .before-stack {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        min-height: 0;
+      }
+
+      .after-panel {
+        min-height: 0;
+      }
+
+      .path,
+      .screens-row,
+      .partner-grid,
+      .risk-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .final-cta {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 26px, 1180px);
+      }
+
+      .nav {
+        min-height: 66px;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .brand-text {
+        font-size: 14px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        gap: 24px;
+        padding: 44px 0 26px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 29px;
+      }
+
+      .cta-row {
+        width: 100%;
+      }
+
+      .cta-row .btn {
+        width: fit-content;
+        max-width: 100%;
+        min-height: 44px;
+        padding: 10px 16px;
+        white-space: normal;
+        line-height: 1.25;
+        text-align: center;
+      }
+
+      .floating-note {
+        width: 100%;
+      }
+
+      .hero-proof {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .before-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .copy-card,
+      .kit-section,
+      .final-cta {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .product-shot {
+        padding: 12px;
+      }
+
+      .sticky-mobile-cta {
+        position: fixed;
+        z-index: 40;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        display: grid;
+      }
+
+      .sticky-mobile-cta .btn {
+        width: 100%;
+        box-shadow: 0 18px 42px rgba(6, 199, 85, 0.34);
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- ━━━ Navigation ━━━ -->
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">
-                <i class="fa-solid fa-map-location-dot"></i>
-                Blue <span>Life</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="active">ホーム</a></li>
-                <li><a href="service.html">サービス・料金</a></li>
-                <li><a href="portfolio.html">実績</a></li>
-                <li><a href="profile.html">事業概要</a></li>
-                <li><a href="contact.html">お問い合わせ</a></li>
-            </ul>
-            <a href="https://coconala.com/users/5311104" target="_blank" class="nav-cta">
-                無料相談 <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-label="メニュー">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#">
+        <span class="brand-mark"><img src="blue-life-logo-mark.png" alt="" aria-hidden="true"></span>
+        <span class="brand-text">Blue Life<span>現場に、少し余白を。</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#demo">うけメモ</a>
+        <a href="https://lin.ee/WhV6vM5">受け取る</a>
+        <a href="#partner">協業</a>
+        <a class="nav-cta" href="https://lin.ee/WhV6vM5">うけメモを受け取る</a>
+      </div>
     </nav>
+  </header>
 
-    <!-- ━━━ HERO ━━━ -->
-    <header class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div class="hero-eyebrow">
-                <i class="fa-solid fa-helmet-safety"></i>
-                ガラス工事・外壁・塗装・リフォーム業のオーナー様へ
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">紙・Excel・LINEに散らばる反響対応を、1枚に。</span>
+          <h1>その問い合わせ、<br>次に誰が追いますか？</h1>
+          <p class="hero-copy">フォーム、LINE、メモ、Excelに散らばる反響を、現調予定・見積状況・次回アクションまで1枚で追える形に。反響・現調管理シート「うけメモ」です。</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://lin.ee/WhV6vM5">LINEでうけメモを受け取る</a>
+            <a class="btn btn-ghost" href="#demo">中身を見る</a>
+          </div>
+          <p class="micro">LINE追加後に「シート希望」と送ると、配布案内を受け取れます。</p>
+          <div class="promise-line">
+            <span>Googleスプレッドシートで試せる</span>
+            <span>大きなシステム不要</span>
+            <span>コピーして使える汎用版</span>
+          </div>
+        </div>
+
+        <div class="mess-stage" aria-label="散らばった問い合わせが管理シートにまとまるイメージ">
+          <div class="floating-note note-a"><strong>フォーム</strong>浴室交換の相談が来た</div>
+          <div class="floating-note note-b"><strong>LINE</strong>現調日程のやり取りが残る</div>
+          <div class="floating-note note-c"><strong>Excel</strong>見積状況だけ別表にある</div>
+          <div class="floating-note note-d"><strong>メモ</strong>次に電話する日が担当者任せ</div>
+          <span class="note-line line-a"></span>
+          <span class="note-line line-b"></span>
+          <span class="note-line line-c"></span>
+          <span class="note-line line-d"></span>
+          <div class="sheet-showcase">
+            <div class="window-top">
+              <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <span>反響・現調管理シート うけメモ</span>
             </div>
-            <h1>口コミ放置で<br><span class="hero-accent">毎日お客様を逃していませんか？</span></h1>
-            <p class="hero-sub">
-                「近くの〇〇」で検索されたとき、あなたの会社は出てきますか？<br class="pc-only">
-                口コミ返信・投稿・レポートまで、<strong>現在モニター価格 月1万円〜で全部やります</strong>
-            </p>
-
-            <div class="hero-price-strip">
-                <div class="hero-price-inner">
-                    <span class="price-label">すべてコミコミ月額</span>
-                    <span class="price-number">10,000</span>
-                    <span class="price-yen">円〜<small>（税込）</small></span>
-                </div>
+            <div class="sheet-body">
+              <img class="shot-img" src="2026-05-27-gencho-carte-sheet-input.png" alt="問い合わせ入力と最近の入力一覧を確認できるGoogleスプレッドシート画面">
             </div>
-
-            <div class="hero-badges">
-                <div class="badge"><i class="fa-solid fa-earth-asia"></i> 全国対応</div>
-                <div class="badge"><i class="fa-solid fa-calendar-check"></i> 土日祝も稼働</div>
-                <div class="badge"><i class="fa-solid fa-bolt"></i> 即レス対応</div>
-            </div>
-
-            <a href="https://coconala.com/users/5311104" target="_blank" class="btn-primary btn-hero-cta">
-                <i class="fa-solid fa-comments"></i>
-                無料で相談してみる
-            </a>
-            <p class="hero-note">※ 会員登録不要・お見積もり無料</p>
+          </div>
         </div>
-    </header>
-
-    <!-- ━━━ TRUST BAR ━━━ -->
-    <section class="trust-bar">
-        <div class="trust-item">
-            <span class="trust-number">772+</span>
-            <span class="trust-label">件以上のMEO関連サービスから<br>最安値水準</span>
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item">
-            <span class="trust-number">365</span>
-            <span class="trust-label">日対応<br>土日祝も稼働中</span>
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item">
-            <span class="trust-number">0</span>
-            <span class="trust-label">円で相談可能<br>お見積もり無料</span>
-        </div>
+      </div>
+      <div class="wrap hero-proof">
+        <div class="proof-item"><strong>問い合わせ一覧</strong><span>反響日、相談内容、担当者、状態を1か所に。</span></div>
+        <div class="proof-item"><strong>現調予定</strong><span>日程、希望時間、現調メモを後から探せる形に。</span></div>
+        <div class="proof-item"><strong>次回アクション</strong><span>見積後の連絡や確認タスクを埋もれにくく。</span></div>
+      </div>
     </section>
 
-    <!-- ━━━ WHO IS THIS FOR（ペルソナ共感） ━━━ -->
-    <section class="section section--dark" id="who">
-        <div class="container">
-            <div class="section-label">こんなお悩みありませんか？</div>
-            <h2 class="section-heading">腕には自信がある。<br class="sp-only"><span class="highlight">でも問い合わせが来ない。</span></h2>
-            <p class="section-lead">それ、Googleマップの"見え方"の問題かもしれません。</p>
-
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon"><i class="fa-solid fa-window-maximize"></i></div>
-                    <h3>ガラス工事業のオーナー様</h3>
-                    <p>「地域名
-                        ガラス修理」で検索しても自社が出てこない。<strong>Googleマップは登録したけど放置</strong>。口コミは0件、投稿もゼロ。「この会社、本当にやってるの？」と思われているかも。
-                    </p>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon"><i class="fa-solid fa-paint-roller"></i></div>
-                    <h3>外壁・塗装業のオーナー様</h3>
-                    <p>下請け中心だったが、<strong>元請けからの仕事が去年から減った</strong>。自社で集客したいが、ホームページは昔作ったきり。Googleマップで「塗装」と検索すると大手ばかりが並ぶ。
-                    </p>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon"><i class="fa-solid fa-hammer"></i></div>
-                    <h3>リフォーム・一人親方の方</h3>
-                    <p>腕には自信がある。でも<strong>紹介が去年から月１〜２件に減った</strong>。「地域名 リフォーム」で検索すると大手ばかりが並ぶ。ホームページは昔作ったきり、更新していない。</p>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon"><i class="fa-solid fa-droplet"></i></div>
-                    <h3>防水・屋根工事業の方</h3>
-                    <p>★3の口コミが足を引っ張っている。<strong>ネガティブ口コミ1件で新規問い合わせが月5件減る</strong>と言われている。返信しないと「この業者、クレーム聞かないんだ」と思われる。
-                    </p>
-                </div>
-            </div>
-
-            <div class="problem-answer-box">
-                <div class="answer-arrow"><i class="fa-solid fa-arrow-down"></i></div>
-                <p>パソコンを開く時間がない？<br class="sp-only"><strong>だから全部、モニター価格月1万円〜で私がやります。</strong></p>
-                <span class="answer-tag">あなたの「オンラインの事務員」として</span>
-            </div>
+    <section class="section" id="pain">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>反響は来ているのに、対応状況が見えない。</h2>
+          <p class="lead">「あの件、誰か折り返した？」「現調日、LINEのどこにあったっけ？」小規模な会社ほど、問い合わせ後の情報が担当者ごとに分かれがちです。</p>
         </div>
+        <div class="pain-board">
+          <div class="before-stack">
+            <div class="pain-card"><strong>フォーム後の転記</strong><p>問い合わせ内容を、別の表やメモに手入力している。</p></div>
+            <div class="pain-card"><strong>LINEに残る日程</strong><p>現調予定や変更連絡が、担当者のLINEに残りやすい。</p></div>
+            <div class="pain-card"><strong>見積後の追客</strong><p>次の連絡が、担当者の記憶や個人判断に寄っている。</p></div>
+            <div class="pain-card"><strong>CRMまでは重い</strong><p>本格システムほどではないが、今のExcel管理には限界がある。</p></div>
+          </div>
+          <div class="after-panel">
+            <h3>1枚で見えると、次の一手が止まりにくい。</h3>
+            <p>反響日、相談内容、現調予定、ステータス、担当者、次回アクションを同じ場所へ。まずは管理の型を小さく作ります。</p>
+            <div class="mini-table" aria-hidden="true">
+              <div class="mini-row"><span class="mini-cell">反響日</span><span class="mini-cell">相談内容</span><span class="mini-cell">状態</span><span class="mini-cell">次回</span></div>
+              <div class="mini-row"><span class="mini-cell">5/31</span><span class="mini-cell">浴室交換</span><span class="mini-cell">現調待ち</span><span class="mini-cell">日程確認</span></div>
+              <div class="mini-row"><span class="mini-cell">6/01</span><span class="mini-cell">外壁塗装</span><span class="mini-cell">見積中</span><span class="mini-cell">電話</span></div>
+              <div class="mini-row"><span class="mini-cell">6/02</span><span class="mini-cell">内窓相談</span><span class="mini-cell">受付</span><span class="mini-cell">返信</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ━━━ WHAT HAPPENS（放置のリスク） ━━━ -->
-    <section class="section section--light" id="risk">
-        <div class="container">
-            <div class="section-label">RISK</div>
-            <h2 class="section-heading">口コミ放置で起きていること</h2>
-            <p class="section-lead">「まあいいか」が、毎日お客様を逃しています。</p>
-
-            <div class="ba-grid">
-                <div class="ba-card ba-before">
-                    <div class="ba-tag ba-tag--bad"><i class="fa-solid fa-xmark"></i> 今のあなたのGBP</div>
-                    <ul>
-                        <li><i class="fa-solid fa-circle-xmark"></i> 口コミ0件 or 返信なし → <strong>「この店大丈夫？」</strong></li>
-                        <li><i class="fa-solid fa-circle-xmark"></i> 最終投稿が半年前 → <strong>「まだやってるの？」</strong></li>
-                        <li><i class="fa-solid fa-circle-xmark"></i> 写真がない or 暗い → <strong>競合に流れる</strong></li>
-                        <li><i class="fa-solid fa-circle-xmark"></i> ★3の口コミ放置 → <strong>悪印象が固定</strong></li>
-                    </ul>
-                </div>
-                <div class="ba-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="ba-card ba-after">
-                    <div class="ba-tag ba-tag--good"><i class="fa-solid fa-check"></i> 3ヶ月後のイメージ</div>
-                    <ul>
-                        <li><i class="fa-solid fa-circle-check"></i> 全口コミに丁寧返信 → <strong>「ちゃんとしたお店だ」</strong></li>
-                        <li><i class="fa-solid fa-circle-check"></i> 月2回の最新投稿 → <strong>「活気があるな」</strong></li>
-                        <li><i class="fa-solid fa-circle-check"></i> プロフィール最適化 → <strong>検索上位に表示</strong></li>
-                        <li><i class="fa-solid fa-circle-check"></i> レポートで変化を実感 → <strong>「頼んで良かった」</strong></li>
-                    </ul>
-                </div>
+    <section class="section soft" id="demo">
+      <div class="wrap showcase">
+        <div>
+          <div class="section-head">
+            <h2>問い合わせ後の「次にやること」が、1枚で見える「うけメモ」です。</h2>
+            <p class="lead">この画面を見ながら、「うちは工事種別を増やしたい」「担当者別に見たい」「フォーム項目を合わせたい」を確認してください。</p>
+          </div>
+          <div class="copy-card">
+            <h3>見てほしいポイント</h3>
+            <ul class="list">
+              <li>反響・現調・次回アクションの並べ方</li>
+              <li>問い合わせ一覧と顧客詳細の見え方</li>
+              <li>自社で使う時に確認したいポイント</li>
+            </ul>
+            <div class="cta-row">
+              <a class="btn btn-dark" href="https://lin.ee/WhV6vM5">うけメモを受け取る</a>
             </div>
+          </div>
         </div>
+        <div class="product-shot">
+          <img class="shot-img" src="2026-05-27-gencho-carte-sheet-input.png" alt="問い合わせ入力画面">
+          <div class="callout callout-a">入力した瞬間に、次に追うべき対応が見える</div>
+          <div class="callout callout-b">担当者の記憶ではなく、一覧で最近の反響を確認</div>
+        </div>
+      </div>
+      <div class="wrap screens-row">
+        <div class="screen-card"><img class="shot-img" src="2026-05-27-gencho-carte-sheet-tasks.png" alt="タスク管理画面"><strong>次回アクション</strong><p>期限日、担当者、完了状態を一覧で確認。</p></div>
+        <div class="screen-card"><img class="shot-img" src="2026-05-27-gencho-carte-sheet-customers.png" alt="顧客一覧画面"><strong>顧客一覧</strong><p>顧客情報と案件の状態をまとめて確認。</p></div>
+        <div class="screen-card"><img class="shot-img" src="2026-05-27-gencho-carte-sheet-customer-view.png" alt="顧客詳細画面"><strong>顧客詳細</strong><p>1件ごとの相談履歴や次にやることを確認。</p></div>
+      </div>
     </section>
 
-    <!-- ━━━ SERVICE OVERVIEW ━━━ -->
-    <section class="section section--dark" id="service-overview">
-        <div class="container">
-            <div class="section-label">SERVICE</div>
-            <h2 class="section-heading">月額10,000円に<span class="highlight">全部入り</span></h2>
-            <p class="section-lead">「何をやるか」ではなく「あなたは何もしなくていい」</p>
-
-            <div class="service-list">
-                <div class="service-item">
-                    <div class="service-num">01</div>
-                    <div class="service-icon-box"><i class="fa-solid fa-reply-all"></i></div>
-                    <div class="service-text">
-                        <h3>口コミ返信代行</h3>
-                        <p>お店の雰囲気に合わせた丁寧な返信。ネガティブレビューへの対応もお任せ。<strong>「返信するだけでリピーターが増える」を実感してください</strong></p>
-                    </div>
-                </div>
-                <div class="service-item">
-                    <div class="service-num">02</div>
-                    <div class="service-icon-box"><i class="fa-solid fa-pen-nib"></i></div>
-                    <div class="service-text">
-                        <h3>投稿・発信の代行</h3>
-                        <p>季節のキャンペーン、新メニュー、お知らせなど定期的な最新情報を投稿。<strong>「あのお店、いつも更新してるな」という印象を作ります</strong></p>
-                    </div>
-                </div>
-                <div class="service-item">
-                    <div class="service-num">03</div>
-                    <div class="service-icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <div class="service-text">
-                        <h3>画像作成</h3>
-                        <p>AI × デザインスキルでプロフィール・投稿用の画像を作成。<strong>素材がなくても大丈夫</strong></p>
-                    </div>
-                </div>
-                <div class="service-item">
-                    <div class="service-num">04</div>
-                    <div class="service-icon-box"><i class="fa-solid fa-chart-column"></i></div>
-                    <div class="service-text">
-                        <h3>月次レポート</h3>
-                        <p>閲覧数・検索クエリ・アクション数を分かりやすくまとめて毎月お届け。<strong>「効果が見える」から続けられる</strong></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-detail-link">
-                <a href="service.html" class="btn-ghost">
-                    サービス・料金の詳細を見る <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
+    <section class="section" id="flow">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>うけメモは、問い合わせ後の情報を受け止めるためのシートです。</h2>
+          <p class="lead">まずは、フォーム・LINE・電話・紹介で来た内容をひとつに残すこと。誰が見ても、次に何をするか分かる状態を作ります。</p>
         </div>
+        <div class="path">
+          <div class="path-step" data-step="1"><h3>問い合わせを受ける</h3><p>フォーム・電話・LINE・紹介など、入口が分かれていても同じ場所に残します。</p></div>
+          <div class="path-step" data-step="2"><h3>次にやることを残す</h3><p>現調予定、見積、折り返し、確認待ちなど、対応状況を見える形にします。</p></div>
+          <div class="path-step" data-step="3"><h3>顧客リストになる</h3><p>相談内容や対応履歴が残るので、あとから顧客情報として見返せます。</p></div>
+        </div>
+      </div>
     </section>
 
-    <!-- ━━━ COMPETITOR COMPARISON ━━━ -->
-    <section class="section section--light" id="competitor">
-        <div class="container">
-            <div class="section-label">COMPARISON</div>
-            <h2 class="section-heading">他社と比べてください</h2>
-            <p class="section-lead">ココナラ上の MEO関連サービス 772件を調査しました</p>
-
-            <div class="compare-table-wrap">
-                <table class="compare-table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th class="compare-them">他社相場<small>（中央値）</small></th>
-                            <th class="compare-us">Blue Life</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="compare-label">月額料金</td>
-                            <td class="compare-them"><s>10,000〜35,000円</s></td>
-                            <td class="compare-us"><strong>10,000円〜</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="compare-label">口コミ返信</td>
-                            <td class="compare-them">別料金が多い</td>
-                            <td class="compare-us"><strong>月6件込み</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="compare-label">投稿代行</td>
-                            <td class="compare-them">月1〜2回</td>
-                            <td class="compare-us"><strong>月2回込み</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="compare-label">画像作成</td>
-                            <td class="compare-them">別途見積もり</td>
-                            <td class="compare-us"><strong>対応可能</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="compare-label">月次レポート</td>
-                            <td class="compare-them">オプション扱い</td>
-                            <td class="compare-us"><strong>毎月無料</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="compare-label">土日祝対応</td>
-                            <td class="compare-them">平日のみが多い</td>
-                            <td class="compare-us"><strong>365日対応</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <section class="section soft" id="line">
+      <div class="wrap kit-section">
+        <div class="kit-grid">
+          <div>
+            <h2>コピーして使える「うけメモ」を、今の管理表と見比べてください。</h2>
+            <p>LINE追加後に「シート希望」と送ると、コピーURL、使い方ガイド、確認ポイントの配布案内を受け取れます。まずは今の管理表と見比べてください。</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://lin.ee/WhV6vM5">LINEでうけメモを受け取る</a>
+              <a class="btn btn-ghost" href="#demo">中身をもう一度見る</a>
             </div>
-            <p class="compare-note">※ 2026年1月時点、ココナラ上のMEO関連サービス772件を独自調査</p>
+          </div>
+          <div class="kit-preview">
+            <div class="kit-item"><span class="kit-icon">URL</span><div><strong>GoogleスプレッドシートのコピーURL</strong><span>まずは自分で触って確認できます。</span></div></div>
+            <div class="kit-item"><span class="kit-icon">PDF</span><div><strong>使い方ガイド</strong><span>どこを見ればいいか迷わないように案内します。</span></div></div>
+            <div class="kit-item"><span class="kit-icon">✓</span><div><strong>確認ポイント</strong><span>今の管理表と見比べる時の見る場所をまとめます。</span></div></div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- ━━━ DATA（業界データで証明） ━━━ -->
-    <section class="section section--dark" id="data">
-        <div class="container">
-            <div class="section-label">DATA</div>
-            <h2 class="section-heading">GBP運用で<span class="highlight">何が変わる？</span></h2>
-            <p class="section-lead">業界調査が示す、Googleビジネスプロフィール最適化の効果</p>
-
-            <div class="sim-showcase">
-                <div class="sim-image-wrap">
-                    <img src="images/gbp-simulation.png" alt="GBP運用改善のイメージ図" loading="lazy" width="800" height="800">
-                    <p class="sim-img-caption">▲ 改善イメージ図</p>
-                </div>
-
-                <div class="sim-kpi-grid">
-                    <div class="sim-kpi-card">
-                        <div class="sim-kpi-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                        <div class="sim-kpi-data">
-                            <span class="sim-kpi-label">検索表示回数</span>
-                            <span class="sim-kpi-after">上位表示で最大1.4倍の増加事例あり</span>
-                            <span class="sim-kpi-source">出典: MEOアナリティクス調査（PR TIMES）</span>
-                        </div>
-                    </div>
-                    <div class="sim-kpi-card">
-                        <div class="sim-kpi-icon"><i class="fa-solid fa-camera"></i></div>
-                        <div class="sim-kpi-data">
-                            <span class="sim-kpi-label">写真の効果</span>
-                            <span class="sim-kpi-after">ルート検索 +42%、サイトクリック +35%</span>
-                            <span class="sim-kpi-source">出典: WordStream / BrightLocal</span>
-                        </div>
-                    </div>
-                    <div class="sim-kpi-card">
-                        <div class="sim-kpi-icon"><i class="fa-solid fa-pen-nib"></i></div>
-                        <div class="sim-kpi-data">
-                            <span class="sim-kpi-label">定期投稿の効果</span>
-                            <span class="sim-kpi-after">サイトクリック 平均30%アップ</span>
-                            <span class="sim-kpi-source">出典: BlueWolf Interactive</span>
-                        </div>
-                    </div>
-                    <div class="sim-kpi-card">
-                        <div class="sim-kpi-icon"><i class="fa-solid fa-star"></i></div>
-                        <div class="sim-kpi-data">
-                            <span class="sim-kpi-label">口コミ評価の効果</span>
-                            <span class="sim-kpi-after">★4.5以上でクリック率 3.5倍</span>
-                            <span class="sim-kpi-source">出典: BlueWolf Interactive</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <p class="sim-note">※ 各データは業界調査・海外統計に基づくものであり、すべての店舗に同等の効果を保証するものではありません。</p>
-
-            <div class="sim-cta">
-                <p class="sim-cta-text">あなたのお店の<strong>現状</strong>、<br class="sp-only">無料で診断してみませんか？</p>
-                <a href="https://coconala.com/users/5311104" target="_blank" class="btn-primary">
-                    <i class="fa-solid fa-chart-line"></i> 無料診断を申し込む
-                </a>
-            </div>
+    <section class="section" id="partner">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Web制作会社・広告代理店の方へ。反響後の“受け皿”まで提案できます。</h2>
+          <p class="lead">LPや広告で問い合わせを増やしても、クライアント側の管理が紙・Excel・LINEのままだと対応状況が見えません。制作後の追加提案として、管理シート化を組み込めます。</p>
         </div>
+        <div class="partner-grid">
+          <div class="quiet-card"><strong>LP制作後の追加提案</strong><p>問い合わせ後の管理まで提案できます。</p></div>
+          <div class="quiet-card"><strong>広告反響の管理用シート</strong><p>流入後の対応状況を見える形にします。</p></div>
+          <div class="quiet-card"><strong>クライアントごとの項目調整</strong><p>工事種別や運用に合わせて整えます。</p></div>
+        </div>
+      </div>
     </section>
 
-    <!-- ━━━ MID CTA（緊急性あり） ━━━ -->
-    <section class="mid-cta">
-        <div class="container">
-            <p class="mid-cta-text">一人で運用するため、<strong>同時対応は月5件まで</strong>に限定しています</p>
-            <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 1.2rem;">
-                枠が埋まり次第、翌月以降のご案内になります。お早めにご相談ください。</p>
-            <a href="https://coconala.com/users/5311104" target="_blank" class="btn-primary">
-                <i class="fa-solid fa-comments"></i> 空き状況を確認する
-            </a>
+    <section class="section soft">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>小さく始めるために、範囲を分けています。</h2>
+          <p class="lead">まずは反響・現調まわりから。kintoneや専用システムを入れる前に、管理の型をスプレッドシートで試作・整理できます。</p>
         </div>
+        <div class="risk-grid">
+          <div class="quiet-card"><strong>できること</strong><p>問い合わせ管理、現調予定、次回アクション、Googleフォーム接続、既存シート改善。</p></div>
+          <div class="quiet-card"><strong>事前確認が必要</strong><p>LINE/メール自動連携、外部サービス連携、大量データ処理、複雑な権限管理。</p></div>
+          <div class="quiet-card"><strong>向いている会社</strong><p>大きなシステムの前に、まず反響管理の型を固めたい小規模会社。</p></div>
+        </div>
+      </div>
     </section>
 
-    <!-- ━━━ REASONS ━━━ -->
-    <section class="section section--dark" id="reasons">
-        <div class="container">
-            <div class="section-label">WHY CHOOSE US</div>
-            <h2 class="section-heading">Blue Lifeが<span class="highlight">選ばれる理由</span></h2>
-
-            <div class="reasons-grid">
-                <div class="reason-card">
-                    <div class="reason-number">01</div>
-                    <div class="reason-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
-                    <h3>「面倒」を丸ごと巻き取る</h3>
-                    <p>口コミ返信・投稿作成はもちろん、「素材がない」「画像がない」という問題もまとめて解決。やることリストを考える必要すらありません。</p>
-                    <small>基本プランで口コミ返信月6件・投稿月2回・月次レポート付き</small>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-number">02</div>
-                    <div class="reason-icon"><i class="fa-regular fa-calendar-check"></i></div>
-                    <h3>お店が忙しい日こそ動く</h3>
-                    <p>土日・祝日も稼働。平日日中も連絡がつくので急な依頼にも対応可能。指示待ちではなく「次はこれを投稿しましょう」と先回り提案します。</p>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-number">03</div>
-                    <div class="reason-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
-                    <h3>相場の半額でプロ品質</h3>
-                    <p>MEO運用代行の相場は月額15,000〜35,000円。Blue Lifeなら同等以上の内容を月額10,000円で。データ分析レポート付きです。</p>
-                </div>
-            </div>
+    <section class="section">
+      <div class="wrap about">
+        <div class="avatar"><img src="blue-life-operator-illustration.png" alt="Blue Life運営者イラスト"></div>
+        <div>
+          <h2>現場に、少し余白を。</h2>
+          <p class="lead">Blue Lifeは、建設・住宅業の問い合わせ対応や顧客管理を、Googleスプレッドシート/GASで整える制作サービスです。小さく作り、使いながら直し、現場の運用に乗る形を一緒に探します。</p>
         </div>
+      </div>
     </section>
 
-    <!-- ━━━ PRICING TEASER ━━━ -->
-    <section class="section section--light" id="pricing-teaser">
-        <div class="container">
-            <div class="section-label">PRICING</div>
-            <h2 class="section-heading">シンプルな料金体系</h2>
-            <p class="section-lead">現在モニター価格！月額10,000円〜の基本プランからスタート</p>
-
-            <div class="pricing-teaser-card">
-                <div class="pricing-teaser-header">
-                    <span class="pricing-teaser-badge">基本プラン</span>
-                    <div class="pricing-teaser-price">
-                        <span class="pt-yen">月額</span>
-                        <span class="pt-amount">10,000</span>
-                        <span class="pt-unit">円〜（税込）</span>
-                    </div>
-                </div>
-                <div class="pricing-teaser-body">
-                    <div class="pricing-teaser-includes">
-                        <div class="pti"><i class="fa-solid fa-check"></i> 口コミ返信（月6件）</div>
-                        <div class="pti"><i class="fa-solid fa-check"></i> 投稿作成・代行（月2回）</div>
-                        <div class="pti"><i class="fa-solid fa-check"></i> プロフィール最適化</div>
-                        <div class="pti"><i class="fa-solid fa-check"></i> 月次レポート</div>
-                        <div class="pti"><i class="fa-solid fa-check"></i> チャットサポート</div>
-                    </div>
-                    <a href="service.html" class="btn-outline">
-                        すべてのプランを見る <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+    <section class="section" id="contact">
+      <div class="wrap final-cta">
+        <div>
+          <h2>まずは「うけメモ」を、自社の管理表と見比べてください。</h2>
+          <p>LINE追加後に「シート希望」と送ってください。今の管理表と見比べて、使えそうか確認できます。</p>
         </div>
+        <div class="cta-row" style="margin:0">
+          <a class="btn btn-primary" href="https://lin.ee/WhV6vM5">LINEでうけメモを受け取る</a>
+          <a class="btn btn-light" href="#demo">中身をもう一度見る</a>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <!-- ━━━ WHO AM I（信頼構築） ━━━ -->
-    <section class="section section--light" id="about-me">
-        <div class="container">
-            <div class="section-label">ABOUT</div>
-            <h2 class="section-heading">なぜ<span class="highlight">月1万円</span>でできるのか</h2>
+  <footer>
+    <div class="wrap">Blue Life | 現場に、少し余白を。</div>
+  </footer>
 
-            <div class="reasons-grid">
-                <div class="reason-card">
-                    <div class="reason-number">01</div>
-                    <div class="reason-icon"><i class="fa-solid fa-user"></i></div>
-                    <h3>個人だから安い</h3>
-                    <p>オフィスなし。営業マンなし。広告費なし。<strong>固定費がほぼゼロ</strong>だから、その分を価格に還元できます。大手代行会社の「組織コスト」が乗っていない価格です。</p>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-number">02</div>
-                    <div class="reason-icon"><i class="fa-solid fa-robot"></i></div>
-                    <h3>AIで効率化、人の手で仕上げ</h3>
-                    <p>データ分析やレポート作成はAIで自動化。でも<strong>口コミ返信や投稿文は必ず人間がチェック</strong>。「安いけど雑」は絶対にやりません。</p>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-number">03</div>
-                    <div class="reason-icon"><i class="fa-solid fa-heart"></i></div>
-                    <h3>個人店の味方でいたい</h3>
-                    <p>近所の行きつけの店が口コミ放置で評価3.2。料理は美味しいのに。<strong>「もったいない」を放っておけなかった</strong>のが、このサービスの原点です。</p>
-                </div>
-            </div>
-
-            <div class="service-detail-link">
-                <a href="profile.html" class="btn-ghost">
-                    事業概要を見る <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ━━━ FAQ（不安解消） ━━━ -->
-    <section class="section section--dark" id="faq">
-        <div class="container">
-            <div class="section-label">FAQ</div>
-            <h2 class="section-heading">よくある<span class="highlight">不安・質問</span></h2>
-
-            <div class="reasons-grid">
-                <div class="reason-card">
-                    <div class="reason-icon"><i class="fa-solid fa-circle-question"></i></div>
-                    <h3>本当に効果ある？</h3>
-                    <p>Googleマップの口コミ返信率・投稿頻度は、検索順位に影響する要素です。「やらないよりやったほうがいい」ではなく、<strong>「やらないと競合に負ける」</strong>が現実です。
-                    </p>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-icon"><i class="fa-solid fa-clock"></i></div>
-                    <h3>どれくらいで変化が出る？</h3>
-                    <p>早い方で<strong>1ヶ月目から閲覧数が変化</strong>します。一般的には3ヶ月ほどで検索表示回数やアクション数に明確な差が出てきます。</p>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-icon"><i class="fa-solid fa-handshake"></i></div>
-                    <h3>契約期間の縛りは？</h3>
-                    <p>最低契約期間はありません。合わなければいつでも解約OK。<strong>ただし効果を実感するために3ヶ月は続けていただくことをおすすめ</strong>します。</p>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-                    <h3>地方でも効果ある？</h3>
-                    <p><strong>地方こそ効果大</strong>。競合がGBP対策していない地域ほど、少しの運用で検索上位を取れます。建設業は特に地域密着の検索が多いため、効果を感じやすい業種です。</p>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3>怪しくない？信頼できる？</h3>
-                    <p>決済はすべて<strong>ココナラ経由</strong>（エスクロー方式）。お金はココナラが仲介するので、万が一の場合も返金保証あり。個人間の直接送金は一切ありません。</p>
-                </div>
-                <div class="reason-card">
-                    <div class="reason-icon"><i class="fa-solid fa-laptop"></i></div>
-                    <h3>パソコン苦手でも大丈夫？</h3>
-                    <p><strong>大丈夫です。</strong>必要なのはGBPのログイン情報だけ。あとは全部こちらでやります。レポートもスマホで見れる形式でお届けします。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ━━━ FINAL CTA ━━━ -->
-    <section class="final-cta">
-        <div class="final-cta-inner">
-            <h2>あなたのGoogleマップ、<br class="sp-only">無料で診断します</h2>
-            <p>「うちのお店、今どんな状態？」——その疑問に<br>プロの目で現状把握 + 改善ポイントをお伝えします。<br><strong>診断だけでも大歓迎。営業トークは一切しません。</strong></p>
-            <a href="https://coconala.com/users/5311104" target="_blank" class="btn-primary btn-lg">
-                <i class="fa-solid fa-envelope"></i> ココナラで無料診断を申し込む
-            </a>
-            <div class="final-cta-notes">
-                <span><i class="fa-solid fa-circle-check"></i> 会員登録不要</span>
-                <span><i class="fa-solid fa-circle-check"></i> お見積もり無料</span>
-                <span><i class="fa-solid fa-circle-check"></i> しつこい営業一切なし</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ━━━ FOOTER ━━━ -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <div class="footer-logo"><i class="fa-solid fa-map-location-dot"></i> Blue <span>Life</span></div>
-                <p>建設業専門・あなたの会社の「右腕」として<br>Googleマップ運用をサポートします。<br>全国対応・オンライン完結。</p>
-            </div>
-            <div class="footer-nav-group">
-                <h4>ページ</h4>
-                <ul>
-                    <li><a href="index.html">ホーム</a></li>
-                    <li><a href="service.html">サービス・料金</a></li>
-                    <li><a href="portfolio.html">実績・サンプル</a></li>
-                    <li><a href="profile.html">事業概要</a></li>
-                    <li><a href="contact.html">お問い合わせ</a></li>
-                </ul>
-            </div>
-            <div class="footer-nav-group">
-                <h4>お問い合わせ</h4>
-                <ul>
-                    <li><a href="https://coconala.com/users/5311104" target="_blank"><i
-                                class="fa-solid fa-external-link-alt"></i> ココナラで相談する</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Blue Life. All rights reserved.</p>
-            <p>※当サイトのサービス決済はすべてココナラ経由で行います</p>
-        </div>
-    </footer>
-
-    <script>
-        // Nav scroll effect
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
-
-        // Mobile menu
-        document.getElementById('navToggle').addEventListener('click', () => {
-            document.getElementById('navLinks').classList.toggle('open');
-        });
-
-        // Scroll reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.problem-card, .service-item, .reason-card, .ba-card, .trust-item, .sim-kpi-card').forEach(el => {
-            el.classList.add('reveal');
-            observer.observe(el);
-        });
-    </script>
+  <div class="sticky-mobile-cta">
+    <a class="btn btn-primary" href="https://lin.ee/WhV6vM5">LINEでうけメモを受け取る</a>
+  </div>
 </body>
-
 </html>
