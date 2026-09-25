@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;600;700&display=swap");
+
+.variant {
+  --wood: #b96f32;
+  --wood-dark: #70401f;
+  --wood-light: #efd6b9;
+  padding-top: 0;
+  font-family: "Noto Sans JP", "Hiragino Sans", sans-serif;
+}
+
+.variant h1,
+.variant h2,
+.variant h3,
+.variant .brand {
+  font-family: "M PLUS Rounded 1c", "Noto Sans JP", sans-serif;
+}
+
+.variant .price-intro b,
+.variant .shopping-price b,
+.variant .hours-card strong,
+.variant .hero-hours dd,
+.variant .section-number {
+  font-family: "Oswald", "Noto Sans JP", sans-serif;
+}
+
+.variant .site-header { top: 0; }
+
+/* Blue Life：濃紺の構造美と木の温度を合わせた、端正なワークウェア */
+.variant-b {
+  --navy: #071f3d;
+  --navy-2: #123d67;
+  --blue: #246da7;
+  --sky: #e8f1f7;
+  --ice: #f3f6f7;
+  --ink: #101f2c;
+  --muted: #566775;
+  --line: #bccbd4;
+  --gold: #c7894f;
+  background: #eef3f5;
+}
+
+.variant-b .site-header { background: rgba(238,243,245,.97); border-bottom: 1px solid #8ca2b2; }
+.variant-b .brand span { text-transform: uppercase; letter-spacing: .08em; }
+.variant-b .hero { max-width: 1360px; padding-inline: clamp(22px, 5vw, 64px); }
+.variant-b .hero::before {
+  width: 38%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  border-radius: 0;
+  background-image: linear-gradient(rgba(239,214,185,.42), rgba(239,214,185,.42)), url("./blue-life-wood-texture.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: .72;
+}
+.variant-b h1 { font-weight: 800; letter-spacing: -.06em; }
+.variant-b .eyebrow { color: var(--wood); }
+.variant-b .hero-points span { border-radius: 0; border-left: 5px solid var(--wood); background: white; }
+.variant-b .primary-link { border-radius: 0; border-bottom: 5px solid var(--wood); }
+.variant-b .hero-visual { padding-left: 0; }
+.variant-b .hero-hours {
+  left: 30px;
+  right: 0;
+  border: 0;
+  border-left: 8px solid var(--wood);
+  background-image: linear-gradient(rgba(255,255,255,.9), rgba(255,255,255,.9)), url("./blue-life-wood-texture.jpg");
+  background-size: cover;
+  box-shadow: 0 18px 32px rgba(7,31,61,.22);
+}
+.variant-b .hero-visual-hours .hero-hours { left: auto; right: auto; }
+.variant-b .hours-consult { background: var(--navy); color: white; border-left: 5px solid var(--wood); }
+.variant-b .promise-band { position: relative; overflow: hidden; isolation: isolate; text-align: left; padding-left: max(24px, calc((100vw - 1080px)/2)); padding-right: calc(30% + 32px); background: var(--navy); }
+.variant-b .promise-band::after { content: ""; position: absolute; inset: 0 0 0 auto; width: 30%; z-index: -1; background: linear-gradient(rgba(185,111,50,.08), rgba(185,111,50,.08)), url("./blue-life-wood-texture.jpg") center / cover; }
+.variant-b .promise-band .promise-note { color: rgba(186,213,237,.9); }
+.variant-b .section-heading { position: relative; border-bottom: 1px solid var(--line); padding-bottom: 26px; }
+.variant-b .section-heading::after { content: ""; position: absolute; left: 0; bottom: -5px; width: 140px; height: 9px; background: url("./blue-life-wood-texture.jpg") center / cover; box-shadow: inset 0 0 0 1px rgba(112,64,31,.25); }
+.variant-b .section-number { color: var(--wood); font-weight: 600; }
+.variant-b .service-grid { gap: 1px; background: var(--navy); border: 1px solid var(--navy); }
+.variant-b .service-card { border: 0; min-height: 300px; }
+.variant-b .service-card.featured { transform: none; box-shadow: none; background: var(--navy); }
+.variant-b .service-icon { border-radius: 0; border-left: 4px solid var(--wood); }
+.variant-b .scope-note { background: white; border-left: 8px solid var(--wood); }
+.variant-b .price-intro { position: relative; box-shadow: none; border-bottom: 16px solid transparent; border-image: url("./blue-life-wood-texture.jpg") 20 stretch; }
+.variant-b .price-intro > div { background: var(--navy); }
+.variant-b .price-panel { border: 1px solid #9eb0bd; box-shadow: 0 10px 28px rgba(7,31,61,.08); }
+.variant-b .shopping-panel { background-image: linear-gradient(rgba(255,255,255,.92), rgba(255,255,255,.92)), url("./blue-life-wood-texture.jpg"); background-size: cover; border-top: 8px solid var(--wood); }
+.variant-b .confirm-flow { border: 0; border-left: 8px solid var(--wood); }
+.variant-b .area-list { border-top: 8px solid var(--wood); }
+.variant-b .area-row.free > b { border-left: 4px solid var(--wood); background: var(--navy); }
+.variant-b .hours-card { border-right: 18px solid transparent; border-image: url("./blue-life-wood-texture.jpg") 20 stretch; }
+.variant-b .contact-section { position: relative; overflow: hidden; isolation: isolate; background: var(--navy); }
+.variant-b .contact-section::after { content: ""; position: absolute; inset: 0 0 0 auto; width: 24%; z-index: -1; background: linear-gradient(rgba(7,31,61,.18), rgba(7,31,61,.18)), url("./blue-life-wood-texture.jpg") center / cover; }
+
+@media (max-width: 900px) {
+  .variant-b .hero::before { display: none; }
+}
+
+@media (max-width: 620px) {
+  .variant-b .hero-hours { left: 12px; }
+  .variant-b .promise-band { padding-right: calc(18% + 20px); border-bottom: 10px solid var(--wood); }
+  .variant-b .promise-band::after { width: 18%; opacity: .65; }
+  .variant-b .contact-section { border-top: 12px solid var(--wood); }
+  .variant-b .contact-section::after { width: 28%; opacity: .55; }
+}

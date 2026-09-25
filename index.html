@@ -1,1304 +1,320 @@
 <!doctype html>
 <html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blue Life | 反響・現調管理シート うけメモ</title>
-  <link rel="icon" type="image/png" href="blue-life-logo-mark-32.png">
-  <link rel="apple-touch-icon" href="blue-life-logo-mark-180.png">
-  <script>document.documentElement.classList.add("js-enabled");</script>
-  <style>
-    :root {
-      --ink: #071523;
-      --navy: #08224a;
-      --deep: #04152d;
-      --blue: #2f7db5;
-      --sky: #dff2fb;
-      --aqua: #83d2ef;
-      --line: #06c755;
-      --paper: #ffffff;
-      --mist: #f4f8fb;
-      --warm: #fff6d8;
-      --warning: #ffcf54;
-      --muted: #596879;
-      --border: #d8e5ef;
-      --shadow: 0 24px 70px rgba(7, 21, 35, 0.16);
-      --strong-shadow: 0 34px 100px rgba(4, 21, 45, 0.34);
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
-      background: #fff;
-      overflow-x: hidden;
-    }
-
-    body {
-      margin: 0;
-      line-height: 1.72;
-      letter-spacing: 0;
-      overflow-x: hidden;
-      background:
-        radial-gradient(circle at 15% 0%, rgba(131, 210, 239, 0.22), transparent 32rem),
-        linear-gradient(180deg, #ffffff 0%, #f8fbfd 46%, #ffffff 100%);
-    }
-
-    a { color: inherit; }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      border-bottom: 1px solid rgba(216, 229, 239, 0.82);
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(18px);
-    }
-
-    .nav {
-      width: min(1180px, calc(100% - 32px));
-      min-height: 66px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: #fff;
-      border: 1px solid rgba(8, 34, 74, 0.1);
-      box-shadow: 0 12px 26px rgba(47, 125, 181, 0.12);
-      overflow: hidden;
-    }
-
-    .brand-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .brand-text {
-      display: grid;
-      line-height: 1.12;
-      font-size: 15px;
-    }
-
-    .brand-text span {
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: #526579;
-      font-size: 14px;
-      font-weight: 750;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-    }
-
-    .nav-cta,
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 0 18px;
-      border: 1px solid transparent;
-      font-weight: 900;
-      text-decoration: none;
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-      white-space: nowrap;
-    }
-
-    .nav-cta,
-    .btn-primary {
-      color: #fff;
-      background: var(--line);
-      box-shadow: 0 16px 34px rgba(6, 199, 85, 0.24);
-    }
-
-    .btn-primary:hover,
-    .nav-cta:hover,
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-dark {
-      color: #fff;
-      background: var(--navy);
-      box-shadow: 0 18px 42px rgba(8, 34, 74, 0.2);
-    }
-
-    .btn-ghost {
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.28);
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .btn-light {
-      color: var(--navy);
-      background: #fff;
-      border-color: rgba(8, 34, 74, 0.14);
-    }
-
-    .wrap {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 760px;
-      color: #fff;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 82% 22%, rgba(131, 210, 239, 0.25), transparent 24rem),
-        radial-gradient(circle at 15% 16%, rgba(47, 125, 181, 0.24), transparent 22rem),
-        linear-gradient(135deg, #04101f 0%, #08224a 58%, #0d477e 100%);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 900px;
-      height: 520px;
-      right: -160px;
-      top: 120px;
-      border: 1px solid rgba(131, 210, 239, 0.22);
-      border-left: 0;
-      border-bottom: 0;
-      border-radius: 0 260px 0 0;
-      transform: rotate(-8deg);
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: minmax(0, 0.88fr) minmax(560px, 1.12fr);
-      gap: 54px;
-      align-items: center;
-      padding: 86px 0 44px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      min-height: 32px;
-      padding: 0 12px;
-      border-radius: 999px;
-      color: #cbecff;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      background: rgba(255, 255, 255, 0.08);
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    h1, h2, h3, p { margin-top: 0; }
-
-    h1 {
-      margin: 22px 0 20px;
-      font-size: clamp(42px, 5.4vw, 72px);
-      line-height: 1.04;
-      letter-spacing: 0;
-    }
-
-    h2 {
-      margin-bottom: 14px;
-      color: var(--navy);
-      font-size: clamp(30px, 3.8vw, 48px);
-      line-height: 1.22;
-      letter-spacing: 0;
-    }
-
-    h3 {
-      color: var(--navy);
-      line-height: 1.38;
-      letter-spacing: 0;
-    }
-
-    .hero-copy {
-      max-width: 650px;
-      color: #d9e9f8;
-      font-size: 18px;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 28px 0 14px;
-    }
-
-    .kit-section .cta-row,
-    .final-cta .cta-row {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .micro {
-      margin: 0;
-      color: #bfd6ec;
-      font-size: 13px;
-    }
-
-    .promise-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
-    }
-
-    .promise-line span {
-      display: inline-flex;
-      align-items: center;
-      min-height: 30px;
-      padding: 0 10px;
-      border-radius: 999px;
-      color: #e8f6ff;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .mess-stage {
-      position: relative;
-      min-height: 560px;
-    }
-
-    .sheet-showcase {
-      position: absolute;
-      right: 0;
-      top: 76px;
-      width: min(670px, 100%);
-      transform: rotate(-1.4deg);
-      border-radius: 24px;
-      background: #f8fbff;
-      border: 1px solid rgba(255, 255, 255, 0.38);
-      box-shadow: var(--strong-shadow);
-      overflow: hidden;
-      color: var(--ink);
-    }
-
-    .sheet-showcase::before {
-      content: "うけメモ";
-      position: absolute;
-      right: 16px;
-      top: 54px;
-      z-index: 3;
-      padding: 6px 11px;
-      border-radius: 999px;
-      background: rgba(6, 199, 85, 0.14);
-      color: #047a38;
-      font-size: 12px;
-      font-weight: 950;
-    }
-
-    .window-top {
-      height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 0 14px;
-      background: #dbe8f8;
-      border-bottom: 1px solid #c8d7ea;
-      color: var(--navy);
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #9fb3cc;
-    }
-
-    .shot-img {
-      display: block;
-      width: 100%;
-      border: 1px solid #ccd9ea;
-      border-radius: 14px;
-      background: #fff;
-    }
-
-    .sheet-body {
-      padding: 18px;
-      background: linear-gradient(180deg, #f8fbff, #fff);
-    }
-
-    .floating-note {
-      position: absolute;
-      z-index: 4;
-      width: 180px;
-      min-height: 82px;
-      padding: 12px;
-      border-radius: 18px;
-      color: var(--navy);
-      background: rgba(255, 255, 255, 0.96);
-      border: 1px solid rgba(131, 210, 239, 0.38);
-      box-shadow: 0 18px 44px rgba(4, 21, 45, 0.18);
-      font-size: 13px;
-      line-height: 1.45;
-      font-weight: 850;
-      animation: noteFloat 6.5s ease-in-out infinite;
-    }
-
-    .floating-note strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 12px;
-      color: #2c6e9e;
-    }
-
-    .note-line {
-      position: absolute;
-      z-index: 1;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(131, 210, 239, 0), rgba(131, 210, 239, 0.75), rgba(6, 199, 85, 0.45));
-      transform-origin: left center;
-    }
-
-    .note-a { left: 0; top: 28px; transform: rotate(-4deg); }
-    .note-b { right: 12px; top: 8px; transform: rotate(3deg); animation-delay: 800ms; }
-    .note-c { left: 34px; bottom: 112px; transform: rotate(3deg); animation-delay: 1.2s; }
-    .note-d { right: -6px; bottom: 68px; transform: rotate(-2deg); animation-delay: 1.8s; }
-
-    .line-a { left: 154px; top: 96px; width: 280px; transform: rotate(11deg); }
-    .line-b { right: 150px; top: 96px; width: 220px; transform: rotate(156deg); }
-    .line-c { left: 188px; bottom: 162px; width: 260px; transform: rotate(-13deg); }
-    .line-d { right: 146px; bottom: 130px; width: 230px; transform: rotate(190deg); }
-
-    @keyframes noteFloat {
-      0%, 100% { translate: 0 0; }
-      50% { translate: 0 -9px; }
-    }
-
-    .hero-proof {
-      position: relative;
-      z-index: 3;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      padding-bottom: 48px;
-    }
-
-    .proof-item {
-      min-height: 86px;
-      padding: 16px;
-      border-radius: 18px;
-      color: #e7f4ff;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-    }
-
-    .proof-item strong {
-      display: block;
-      color: #fff;
-      line-height: 1.4;
-      margin-bottom: 4px;
-    }
-
-    .proof-item span {
-      color: #c1d8ef;
-      font-size: 13px;
-    }
-
-    .section {
-      position: relative;
-      padding: 104px 0;
-    }
-
-    .section.soft {
-      background:
-        radial-gradient(circle at 84% 12%, rgba(131, 210, 239, 0.18), transparent 28rem),
-        linear-gradient(180deg, rgba(244, 248, 251, 0.96), rgba(237, 246, 251, 0.96));
-    }
-
-    .section-head {
-      max-width: 800px;
-      margin-bottom: 34px;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .pain-board {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      gap: 34px;
-      align-items: center;
-    }
-
-    .before-stack,
-    .after-panel {
-      position: relative;
-      min-height: 390px;
-    }
-
-    .pain-card {
-      position: absolute;
-      width: min(280px, 52%);
-      min-height: 120px;
-      padding: 18px;
-      border-radius: 20px;
-      background: #fff;
-      border: 1px solid rgba(8, 34, 74, 0.1);
-      box-shadow: 0 18px 46px rgba(7, 21, 35, 0.11);
-    }
-
-    .pain-card strong {
-      display: block;
-      color: var(--navy);
-      margin-bottom: 6px;
-      line-height: 1.45;
-    }
-
-    .pain-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .pain-card:nth-child(1) { left: 0; top: 12px; rotate: -3deg; }
-    .pain-card:nth-child(2) { right: 4px; top: 44px; rotate: 2.5deg; }
-    .pain-card:nth-child(3) { left: 14%; top: 158px; rotate: 1deg; }
-    .pain-card:nth-child(4) { right: 12%; bottom: 12px; rotate: -2deg; }
-
-    .after-panel {
-      padding: 28px;
-      border-radius: 30px;
-      color: #fff;
-      background:
-        radial-gradient(circle at 80% 12%, rgba(6, 199, 85, 0.18), transparent 20rem),
-        linear-gradient(135deg, var(--deep), var(--navy));
-      box-shadow: var(--strong-shadow);
-      overflow: hidden;
-    }
-
-    .after-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-      background-size: 38px 38px;
-      pointer-events: none;
-    }
-
-    .after-panel > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .after-panel h3 {
-      color: #fff;
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .after-panel p {
-      color: #d6e8f7;
-    }
-
-    .mini-table {
-      display: grid;
-      gap: 9px;
-      margin-top: 24px;
-    }
-
-    .mini-row {
-      display: grid;
-      grid-template-columns: 0.72fr 1fr 0.72fr 0.72fr;
-      gap: 9px;
-    }
-
-    .mini-cell {
-      min-height: 38px;
-      display: flex;
-      align-items: center;
-      padding: 0 10px;
-      border-radius: 11px;
-      color: #d9ebfb;
-      background: rgba(255, 255, 255, 0.11);
-      font-size: 12px;
-      font-weight: 850;
-    }
-
-    .mini-row:first-child .mini-cell {
-      color: #09203f;
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-    .showcase {
-      display: grid;
-      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-      gap: 44px;
-      align-items: center;
-    }
-
-    .copy-card {
-      padding: 24px;
-      border-radius: 24px;
-      background: #fff;
-      border: 1px solid rgba(8, 34, 74, 0.1);
-      box-shadow: 0 16px 44px rgba(7, 21, 35, 0.08);
-    }
-
-    .list {
-      display: grid;
-      gap: 10px;
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .list li {
-      position: relative;
-      padding-left: 25px;
-      color: #344054;
-    }
-
-    .list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 8px;
-      width: 12px;
-      height: 12px;
-      border-radius: 4px;
-      background: var(--blue);
-    }
-
-    .product-shot {
-      position: relative;
-      padding: 20px;
-      border-radius: 30px;
-      background:
-        linear-gradient(135deg, rgba(223, 242, 251, 0.96), rgba(255, 255, 255, 0.98));
-      border: 1px solid rgba(47, 125, 181, 0.18);
-      box-shadow: var(--shadow);
-    }
-
-    .product-shot::before {
-      content: "";
-      position: absolute;
-      inset: 34px -18px -18px 52px;
-      z-index: -1;
-      border-radius: 30px;
-      background: linear-gradient(135deg, rgba(47, 125, 181, 0.18), rgba(6, 199, 85, 0.11));
-      rotate: 2deg;
-    }
-
-    .callout {
-      position: absolute;
-      z-index: 2;
-      max-width: 220px;
-      padding: 11px 13px;
-      border-radius: 17px;
-      background: #fff;
-      color: var(--navy);
-      border: 1px solid rgba(47, 125, 181, 0.16);
-      box-shadow: 0 16px 38px rgba(7, 21, 35, 0.12);
-      font-size: 13px;
-      font-weight: 850;
-      line-height: 1.5;
-    }
-
-    .callout-a { left: -42px; top: 70px; }
-    .callout-b { right: -34px; bottom: 88px; }
-
-    .screens-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 26px;
-    }
-
-    .screen-card {
-      padding: 14px;
-      border-radius: 20px;
-      background: #fff;
-      border: 1px solid rgba(8, 34, 74, 0.1);
-      box-shadow: 0 14px 36px rgba(7, 21, 35, 0.08);
-    }
-
-    .screen-card .shot-img {
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      object-position: top left;
-      margin-bottom: 12px;
-    }
-
-    .screen-card strong {
-      display: block;
-      color: var(--navy);
-      line-height: 1.45;
-      margin-bottom: 5px;
-    }
-
-    .screen-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .path {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .path-step {
-      position: relative;
-      min-height: 230px;
-      padding: 24px;
-      border-radius: 26px;
-      background: #fff;
-      border: 1px solid rgba(8, 34, 74, 0.1);
-      box-shadow: 0 16px 44px rgba(7, 21, 35, 0.08);
-    }
-
-    .path-step::before {
-      content: attr(data-step);
-      display: grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      margin-bottom: 16px;
-      border-radius: 12px;
-      color: #fff;
-      background: var(--blue);
-      font-weight: 950;
-    }
-
-    .path-step h3 {
-      margin-bottom: 8px;
-    }
-
-    .path-step p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .kit-section {
-      padding: 42px;
-      border-radius: 34px;
-      color: #fff;
-      background:
-        radial-gradient(circle at 86% 8%, rgba(6, 199, 85, 0.2), transparent 20rem),
-        linear-gradient(135deg, var(--deep), var(--navy));
-      box-shadow: var(--strong-shadow);
-      overflow: hidden;
-    }
-
-    .kit-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 34px;
-      align-items: center;
-    }
-
-    .kit-section h2 {
-      color: #fff;
-    }
-
-    .kit-section p {
-      color: #d6e8f7;
-    }
-
-    .kit-preview {
-      display: grid;
-      gap: 12px;
-    }
-
-    .kit-item {
-      display: grid;
-      grid-template-columns: 54px minmax(0, 1fr);
-      gap: 14px;
-      align-items: center;
-      min-height: 86px;
-      padding: 14px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-    }
-
-    .kit-icon {
-      width: 54px;
-      height: 54px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      color: var(--navy);
-      background: #fff;
-      font-weight: 950;
-    }
-
-    .kit-item strong {
-      display: block;
-      color: #fff;
-      line-height: 1.42;
-      margin-bottom: 2px;
-    }
-
-    .kit-item span {
-      color: #c7dcee;
-      font-size: 13px;
-    }
-
-    .partner-grid,
-    .risk-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .quiet-card {
-      padding: 22px;
-      border-radius: 22px;
-      background: #fff;
-      border: 1px solid rgba(8, 34, 74, 0.1);
-      box-shadow: 0 1px 0 rgba(7, 21, 35, 0.04);
-    }
-
-    .quiet-card strong {
-      display: block;
-      color: var(--navy);
-      margin-bottom: 7px;
-      line-height: 1.45;
-    }
-
-    .quiet-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .about {
-      display: grid;
-      grid-template-columns: 170px minmax(0, 1fr);
-      gap: 28px;
-      align-items: center;
-    }
-
-    .avatar {
-      width: 170px;
-      aspect-ratio: 1;
-      border-radius: 26px;
-      background: #fff;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    .final-cta {
-      padding: 42px;
-      border-radius: 34px;
-      color: #fff;
-      background:
-        radial-gradient(circle at 76% 18%, rgba(6, 199, 85, 0.24), transparent 19rem),
-        linear-gradient(135deg, #04152d, #08224a 62%, #0c3e72);
-      box-shadow: var(--strong-shadow);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 26px;
-    }
-
-    .final-cta h2 {
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .final-cta p {
-      margin: 0;
-      color: #d7e8f6;
-    }
-
-    footer {
-      padding: 30px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .sticky-mobile-cta {
-      display: none;
-    }
-
-    @media (max-width: 980px) {
-      .nav-links a:not(.nav-cta) { display: none; }
-
-      .hero-grid,
-      .pain-board,
-      .showcase,
-      .kit-grid,
-      .about {
-        grid-template-columns: 1fr;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="釧路の平日夜・土日祝専門の便利屋 Blue Life。荷物・家具の移動、片付け、説明書のある家具の組み立て、買い物代行に対応。営業時間内は夜・土日祝の割増なし。23時以降は要相談です。" />
+    <meta name="theme-color" content="#082b58" />
+    <title>Blue Life｜釧路の平日夜・土日祝専門の便利屋</title>
+    <link rel="canonical" href="https://bluelife.jp/" />
+    <link rel="icon" type="image/png" href="./blue-life-logo.png" />
+    <link rel="stylesheet" href="./styles.css?v=20260916-2" />
+    <link rel="stylesheet" href="./patterns.css?v=20260916-2" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"夜や土日祝は割増になりますか？","acceptedAnswer":{"@type":"Answer","text":"23時までの通常対応時間内は、夜・土日祝の割増はありません。23時以降は通常料金とは別に深夜料金がかかります。"}},
+          {"@type":"Question","name":"23時以降も依頼できますか？","acceptedAnswer":{"@type":"Answer","text":"要相談で承ります。深夜料金は作業内容によってお見積もりし、訪問前に総額をご案内します。"}},
+          {"@type":"Question","name":"家具組み立てに時間料金はかかりますか？","acceptedAnswer":{"@type":"Answer","text":"23時までの通常対応時間内は、1点ごとの料金のみで時間料金は加算しません。23時以降のご依頼には別途深夜料金がかかります。"}},
+          {"@type":"Question","name":"家具の段ボールも処分してもらえますか？","acceptedAnswer":{"@type":"Answer","text":"段ボールをまとめるところまでは料金に含みますが、処分は含みません。"}},
+          {"@type":"Question","name":"家具や荷物を別の住所まで運べますか？","acceptedAnswer":{"@type":"Answer","text":"引っ越しのような荷物の運搬は行いません。家の中で、1人で運べる家具や荷物の移動に対応します。買い物代行で購入した商品は、ご自宅までお届けします。"}},
+          {"@type":"Question","name":"買い物の商品代は立て替えてもらえますか？","acceptedAnswer":{"@type":"Answer","text":"LINEまたはSMSで注文内容を確認できる方は1万円まで立て替えます。電話だけの場合、または1万円を超える場合は先に商品代をお預かりします。"}},
+          {"@type":"Question","name":"支払い方法は何ですか？","acceptedAnswer":{"@type":"Answer","text":"現金でのお支払いです。"}},
+          {"@type":"Question","name":"出張費はかかりますか？","acceptedAnswer":{"@type":"Answer","text":"釧路市の阿寒・音別を除く地域と釧路町は無料です。白糠町・鶴居村・阿寒町の阿寒湖を除く地域は2,000円、阿寒湖温泉・音別は5,000円または要相談です。"}},
+          {"@type":"Question","name":"不用品回収はできますか？","acceptedAnswer":{"@type":"Answer","text":"要相談です。ご依頼内容を確認したうえでご案内します。"}},
+          {"@type":"Question","name":"夜遅くでも家具を組み立ててもらえますか？","acceptedAnswer":{"@type":"Answer","text":"22時以降は音の出る作業をお受けしません。音の出ない内容でも、23時以降は要相談となり、別途深夜料金がかかります。"}}
+        ]
       }
-
-      .hero-grid {
-        padding-top: 56px;
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://bluelife.jp/#business",
+        "name": "Blue Life",
+        "category": "便利屋",
+        "description": "釧路市・釧路町を中心に、平日夜と土日祝に対応する便利屋です。",
+        "url": "https://bluelife.jp/",
+        "logo": "https://bluelife.jp/blue-life-logo.png",
+        "telephone": "+81-70-8417-7044",
+        "priceRange": "3,000円〜",
+        "paymentAccepted": "現金",
+        "areaServed": [
+          {"@type":"City","name":"釧路市"},
+          {"@type":"AdministrativeArea","name":"釧路町"},
+          {"@type":"AdministrativeArea","name":"白糠町"},
+          {"@type":"AdministrativeArea","name":"鶴居村"},
+          {"@type":"AdministrativeArea","name":"阿寒町"},
+          {"@type":"AdministrativeArea","name":"阿寒湖温泉"},
+          {"@type":"AdministrativeArea","name":"音別"}
+        ],
+        "openingHoursSpecification": [
+          {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"23:00"},
+          {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","PublicHolidays"],"opens":"09:00","closes":"18:00"}
+        ],
+        "openingHours": ["Mo-Fr 18:00-23:00", "Sa-Su 09:00-18:00", "祝日 09:00-18:00"],
+        "additionalProperty": [
+          {"@type":"PropertyValue","name":"祝日の営業時間","value":"09:00〜18:00"},
+          {"@type":"PropertyValue","name":"23時以降の対応","value":"要相談。通常料金とは別に、作業内容に応じた深夜料金を事前見積もり"},
+          {"@type":"PropertyValue","name":"最低料金","value":"1回4,000円（買い物代行を除く）"}
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "サービス・出張料金",
+          "itemListElement": [
+            {"@type":"Offer","name":"基本作業（1名・1時間）","price":"4000","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"延長（30分）","price":"2000","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"荷物・家具の移動（家の中・1人で運べるもの・1時間）","price":"4000","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"片付け・整理（1時間）","price":"4000","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"家具組み立て 小（1点）","price":"3000","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"家具組み立て 中（1点）","price":"4500","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"家具組み立て 大（1点）","price":"6500","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"ダイニングチェア（1脚目）","price":"3000","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"同じダイニングチェア（2脚目以降・1脚）","price":"1500","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"買い物代行（お店1軒・商品代別）","price":"3000","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"買い物代行（2軒目以降・1軒）","price":"1000","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"出張費：釧路市（阿寒・音別を除く）・釧路町","price":"0","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"出張費：白糠町・鶴居村・阿寒町（阿寒湖を除く）","price":"2000","priceCurrency":"JPY"},
+            {"@type":"Offer","name":"出張費：阿寒湖温泉・音別","price":"5000","priceCurrency":"JPY","description":"5,000円または要相談"}
+          ]
+        }
       }
+    </script>
 
-      .mess-stage {
-        min-height: auto;
-      }
-
-      .sheet-showcase,
-      .floating-note,
-      .note-line,
-      .pain-card,
-      .callout {
-        position: relative;
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        width: auto;
-        max-width: none;
-        transform: none;
-        rotate: 0deg;
-      }
-
-      .pain-card:nth-child(1),
-      .pain-card:nth-child(2),
-      .pain-card:nth-child(3),
-      .pain-card:nth-child(4) {
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        rotate: 0deg;
-      }
-
-      .sheet-showcase {
-        margin-top: 18px;
-      }
-
-      .floating-note {
-        display: inline-grid;
-        width: calc(50% - 8px);
-        margin: 0 8px 10px 0;
-        vertical-align: top;
-      }
-
-      .before-stack {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-        min-height: 0;
-      }
-
-      .after-panel {
-        min-height: 0;
-      }
-
-      .path,
-      .screens-row,
-      .partner-grid,
-      .risk-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .final-cta {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .wrap {
-        width: min(100% - 26px, 1180px);
-      }
-
-      .nav {
-        min-height: 66px;
-      }
-
-      .nav-cta {
-        display: none;
-      }
-
-      .brand-mark {
-        width: 34px;
-        height: 34px;
-      }
-
-      .brand-text {
-        font-size: 14px;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-grid {
-        gap: 24px;
-        padding: 44px 0 26px;
-      }
-
-      h1 {
-        font-size: 34px;
-      }
-
-      h2 {
-        font-size: 29px;
-      }
-
-      .cta-row {
-        width: 100%;
-      }
-
-      .cta-row .btn {
-        width: fit-content;
-        max-width: 100%;
-        min-height: 44px;
-        padding: 10px 16px;
-        white-space: normal;
-        line-height: 1.25;
-        text-align: center;
-      }
-
-      .floating-note {
-        width: 100%;
-      }
-
-      .hero-proof {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 70px 0;
-      }
-
-      .before-stack {
-        grid-template-columns: 1fr;
-      }
-
-      .mini-row {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .copy-card,
-      .kit-section,
-      .final-cta {
-        padding: 24px;
-        border-radius: 24px;
-      }
-
-      .product-shot {
-        padding: 12px;
-      }
-
-      .sticky-mobile-cta {
-        position: fixed;
-        z-index: 40;
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-        display: grid;
-      }
-
-      .sticky-mobile-cta .btn {
-        width: 100%;
-        box-shadow: 0 18px 42px rgba(6, 199, 85, 0.34);
-      }
-    }
-  </style>
-</head>
-<body>
-  <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#">
-        <span class="brand-mark"><img src="blue-life-logo-mark.png" alt="" aria-hidden="true"></span>
-        <span class="brand-text">Blue Life<span>現場に、少し余白を。</span></span>
+  </head>
+  <body class="variant variant-b">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Blue Life トップへ">
+        <img src="./blue-life-logo.png" alt="" width="512" height="512" />
+        <span>Blue Life</span>
       </a>
-      <div class="nav-links">
-        <a href="#demo">うけメモ</a>
-        <a href="https://lin.ee/WhV6vM5">受け取る</a>
-        <a href="#free">無料の理由</a>
-        <a class="nav-cta" href="https://lin.ee/WhV6vM5">うけメモを受け取る</a>
-      </div>
-    </nav>
-  </header>
+      <nav aria-label="ページ内メニュー">
+        <a href="#services">できること</a>
+        <a href="#pricing">料金</a>
+        <a href="#area">出張エリア</a>
+        <a href="#faq">よくある質問</a>
+        <a href="#contact">ご依頼</a>
+      </nav>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <span class="eyebrow">紙・Excel・LINEに散らばる反響対応を、1枚に。</span>
-          <h1>その問い合わせ、<br>次に誰が追いますか？</h1>
-          <p class="hero-copy">フォーム、LINE、メモ、Excelに散らばる反響を、現調予定・見積状況・次回アクションまで1枚で追える形に。反響・現調管理シート「うけメモ Ver.1.0 無料版」です。</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="https://lin.ee/WhV6vM5">LINEでうけメモを受け取る</a>
-            <a class="btn btn-ghost" href="#demo">中身を見る</a>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">釧路市・釧路町を中心に対応</p>
+          <h1>平日の夜と、<br />土日祝の「ちょっと困った」に。</h1>
+          <p class="lead">Blue Lifeは、釧路市・釧路町の平日夜・土日祝専門の便利屋です。荷物の移動、片付け、説明書のある家具の組み立て、買い物代行を、分かりやすい料金でお手伝いします。</p>
+          <div class="hero-points" aria-label="サービスの特徴">
+            <span>夜も土日祝も、営業時間内は同じ料金</span>
+            <span>釧路市・釧路町は出張無料</span>
+            <span>最低料金 4,000円（買い物代行を除く）</span>
           </div>
-          <p class="micro">無料配布中です。LINE追加後は、メニューの「うけメモを受け取る」をタップするだけで配布案内を受け取れます。</p>
-          <div class="promise-line">
-            <span>Ver.1.0 無料版</span>
-            <span>大きなシステム不要</span>
-            <span>コピーして使える</span>
-          </div>
+          <a class="primary-link" href="#pricing">料金を見る <span aria-hidden="true">↓</span></a>
         </div>
-
-        <div class="mess-stage" aria-label="散らばった問い合わせが管理シートにまとまるイメージ">
-          <div class="floating-note note-a"><strong>フォーム</strong>浴室交換の相談が来た</div>
-          <div class="floating-note note-b"><strong>LINE</strong>現調日程のやり取りが残る</div>
-          <div class="floating-note note-c"><strong>Excel</strong>見積状況だけ別表にある</div>
-          <div class="floating-note note-d"><strong>メモ</strong>次に電話する日が担当者任せ</div>
-          <span class="note-line line-a"></span>
-          <span class="note-line line-b"></span>
-          <span class="note-line line-c"></span>
-          <span class="note-line line-d"></span>
-          <div class="sheet-showcase">
-            <div class="window-top">
-              <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-              <span>反響・現調管理シート うけメモ</span>
-            </div>
-            <div class="sheet-body">
-              <img class="shot-img" src="ukememo-input.png" alt="問い合わせ入力と最近の入力一覧を確認できるうけメモの画面">
-            </div>
+        <div class="hero-visual hero-visual-hours">
+          <div class="hero-hours">
+            <p class="panel-label">対応時間</p>
+            <dl>
+              <div><dt>平日</dt><dd>18:00〜23:00</dd></div>
+              <div><dt>土日祝</dt><dd>9:00〜18:00</dd></div>
+            </dl>
+            <p class="hours-finish">※時間は作業が終わる時間です</p>
+            <p class="hours-consult">23:00以降は要相談・深夜料金あり</p>
           </div>
         </div>
-      </div>
-      <div class="wrap hero-proof">
-        <div class="proof-item"><strong>問い合わせ一覧</strong><span>反響日、相談内容、担当者、状態を1か所に。</span></div>
-        <div class="proof-item"><strong>現調予定</strong><span>日程、希望時間、現調メモを後から探せる形に。</span></div>
-        <div class="proof-item"><strong>次回アクション</strong><span>見積後の連絡や確認タスクを埋もれにくく。</span></div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" id="free">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>なぜ無料で配っているのか。</h2>
-          <p class="lead">うけメモは、私自身が業務管理で使っている考え方を、リフォーム会社・工務店・外壁塗装会社でも試しやすいように、Googleスプレッドシート版として整えたものです。</p>
-        </div>
-        <div class="risk-grid">
-          <div class="quiet-card"><strong>無料版でできること</strong><p>問い合わせ、現調予定、見積状況、次回アクションをまず1か所で見えるようにします。今の管理表と比べるための入口として無料配布しています。</p></div>
-          <div class="quiet-card"><strong>無料にしている理由</strong><p>現場会社さんに実際に触ってもらい、役に立つかを先に判断してもらうためです。無理な営業や自動配信で追いかけるためのものではありません。</p></div>
-          <div class="quiet-card"><strong>有料になる範囲</strong><p>御社用の項目調整、既存フォーム接続、通知や運用設計、WEBアプリのような形への発展は、内容を確認してから有料でお請けします。</p></div>
-        </div>
-      </div>
-    </section>
+      <section class="promise-band" aria-label="料金方針">
+        <h2>帰ってからでも、休みの日でも。<br />料金は変わりません。</h2>
+        <p class="promise-note">平日18:00〜23:00、土日祝9:00〜18:00は割増なし。23時以降は要相談です。通常料金とは別に、深夜料金を事前にお見積もりします。</p>
+      </section>
 
-    <section class="section" id="pain">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>反響は来ているのに、対応状況が見えない。</h2>
-          <p class="lead">「あの件、誰か折り返した？」「現調日、LINEのどこにあったっけ？」小規模な会社ほど、問い合わせ後の情報が担当者ごとに分かれがちです。</p>
-        </div>
-        <div class="pain-board">
-          <div class="before-stack">
-            <div class="pain-card"><strong>フォーム後の転記</strong><p>問い合わせ内容を、別の表やメモに手入力している。</p></div>
-            <div class="pain-card"><strong>LINEに残る日程</strong><p>現調予定や変更連絡が、担当者のLINEに残りやすい。</p></div>
-            <div class="pain-card"><strong>見積後の追客</strong><p>次の連絡が、担当者の記憶や個人判断に寄っている。</p></div>
-            <div class="pain-card"><strong>CRMまでは重い</strong><p>本格システムほどではないが、今のExcel管理には限界がある。</p></div>
-          </div>
-          <div class="after-panel">
-            <h3>1枚で見えると、次の一手が止まりにくい。</h3>
-            <p>反響日、相談内容、現調予定、ステータス、担当者、次回アクションを同じ場所へ。まずは管理の型を小さく作ります。</p>
-            <div class="mini-table" aria-hidden="true">
-              <div class="mini-row"><span class="mini-cell">反響日</span><span class="mini-cell">相談内容</span><span class="mini-cell">状態</span><span class="mini-cell">次回</span></div>
-              <div class="mini-row"><span class="mini-cell">5/31</span><span class="mini-cell">浴室交換</span><span class="mini-cell">現調待ち</span><span class="mini-cell">日程確認</span></div>
-              <div class="mini-row"><span class="mini-cell">6/01</span><span class="mini-cell">外壁塗装</span><span class="mini-cell">見積中</span><span class="mini-cell">電話</span></div>
-              <div class="mini-row"><span class="mini-cell">6/02</span><span class="mini-cell">内窓相談</span><span class="mini-cell">受付</span><span class="mini-cell">返信</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section soft" id="demo">
-      <div class="wrap showcase">
-        <div>
-          <div class="section-head">
-            <h2>問い合わせ後の「次にやること」が、1枚で見える「うけメモ」です。</h2>
-            <p class="lead">この画面を見ながら、「うちは工事種別を増やしたい」「担当者別に見たい」「フォーム項目を合わせたい」を確認してください。</p>
-          </div>
-          <div class="copy-card">
-            <h3>見てほしいポイント</h3>
-            <ul class="list">
-              <li>反響・現調・次回アクションの並べ方</li>
-              <li>問い合わせ一覧と顧客詳細の見え方</li>
-              <li>自社で使う時に確認したいポイント</li>
-            </ul>
-            <div class="cta-row">
-              <a class="btn btn-dark" href="https://lin.ee/WhV6vM5">うけメモを受け取る</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-shot">
-          <img class="shot-img" src="ukememo-home.png" alt="うけメモのHOME画面">
-          <div class="callout callout-a">入力した瞬間に、次に追うべき対応が見える</div>
-          <div class="callout callout-b">担当者の記憶ではなく、一覧で最近の反響を確認</div>
-        </div>
-      </div>
-      <div class="wrap screens-row">
-        <div class="screen-card"><img class="shot-img" src="ukememo-input.png" alt="問い合わせ入力画面"><strong>問い合わせ入力</strong><p>フォーム回答や電話メモを確認して登録。</p></div>
-        <div class="screen-card"><img class="shot-img" src="ukememo-tasks.png" alt="タスク管理画面"><strong>次回アクション</strong><p>期限日、担当者、状態を一覧で確認。</p></div>
-        <div class="screen-card"><img class="shot-img" src="ukememo-customer-view.png" alt="顧客詳細画面"><strong>顧客詳細</strong><p>1件ごとの相談履歴や次にやることを確認。</p></div>
-      </div>
-    </section>
-
-    <section class="section" id="flow">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>うけメモは、問い合わせ後の情報を受け止めるためのシートです。</h2>
-          <p class="lead">まずは、フォーム・LINE・電話・紹介で来た内容をひとつに残すこと。誰が見ても、次に何をするか分かる状態を作ります。</p>
-        </div>
-        <div class="path">
-          <div class="path-step" data-step="1"><h3>問い合わせを受ける</h3><p>フォーム・電話・LINE・紹介など、入口が分かれていても同じ場所に残します。</p></div>
-          <div class="path-step" data-step="2"><h3>次にやることを残す</h3><p>現調予定、見積、折り返し、確認待ちなど、対応状況を見える形にします。</p></div>
-          <div class="path-step" data-step="3"><h3>顧客リストになる</h3><p>相談内容や対応履歴が残るので、あとから顧客情報として見返せます。</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section soft" id="line">
-      <div class="wrap kit-section">
-        <div class="kit-grid">
+      <section class="section" id="services">
+        <div class="section-heading">
+          <p class="section-number">01</p>
           <div>
-            <h2>コピーして使える「うけメモ」を、今の管理表と見比べてください。</h2>
-            <p>LINE追加後は、リッチメニューの「うけメモを受け取る」をタップするだけで案内が届きます。文字入力が苦手な方でも、迷わず受け取れるようにしています。</p>
-            <p class="micro">スマホでコピーがうまく進まない場合は、外部ブラウザまたはPCで開くのがおすすめです。開けない時の案内もLINEにあります。</p>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="https://lin.ee/WhV6vM5">LINEでうけメモを受け取る</a>
-              <a class="btn btn-ghost" href="#demo">中身をもう一度見る</a>
+            <p class="eyebrow">SERVICE</p>
+            <h2>できること</h2>
+          </div>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-icon" aria-hidden="true">↔</span>
+            <h3>荷物・家具の移動</h3>
+            <p>お部屋の模様替えや、家の中での移動など。1人で運べるものに限ります。</p>
+            <strong>1時間 4,000円</strong>
+          </article>
+          <article class="service-card">
+            <span class="service-icon" aria-hidden="true">□</span>
+            <h3>片付け・整理</h3>
+            <p>散らかった場所の片付けや整理を、いっしょに進めます。</p>
+            <strong>1時間 4,000円</strong>
+          </article>
+          <article class="service-card featured">
+            <span class="service-icon" aria-hidden="true">＋</span>
+            <h3>家具の組み立て</h3>
+            <p>説明書のある市販家具を組み立てます。営業時間内は時間料金を加算しません。</p>
+            <strong>1点 3,000円〜</strong>
+          </article>
+          <article class="service-card">
+            <span class="service-icon" aria-hidden="true">◎</span>
+            <h3>買い物代行</h3>
+            <p>ご希望の商品を確認してから購入し、ご自宅までお届けします。</p>
+            <strong>1回 3,000円＋商品代</strong>
+          </article>
+        </div>
+        <div class="scope-note">
+          <strong>対応していないこと</strong>
+          <p>専門的な技術・資格が必要な作業、草刈りなど、上記以外のメニューは現在お受けしていません。</p>
+        </div>
+      </section>
+
+      <section class="section tinted" id="pricing">
+        <div class="section-heading">
+          <p class="section-number">02</p>
+          <div>
+            <p class="eyebrow">PRICE</p>
+            <h2>料金</h2>
+          </div>
+        </div>
+
+        <div class="price-intro">
+          <div>
+            <span>基本作業・1名</span>
+            <strong><b>4,000</b>円<small>／1時間</small></strong>
+          </div>
+          <dl>
+            <div><dt>延長</dt><dd>30分ごと 2,000円</dd></div>
+            <div><dt>最低料金</dt><dd>1回 4,000円（買い物代行を除く）</dd></div>
+            <div><dt>23時までの夜・土日祝</dt><dd class="no-extra">割増なし</dd></div>
+          </dl>
+        </div>
+        <p class="first-time-offer"><strong>初回アンケートで1,000円引き</strong><span>初回の簡単なアンケートにご協力いただける方が対象です。口コミ投稿は条件ではありません。</span></p>
+        <p class="deepnight-note"><strong>23時以降のご依頼は要相談です。</strong> 通常料金とは別に深夜料金がかかります。金額は作業内容によって事前にお見積もりします。</p>
+
+        <div class="price-columns">
+          <article class="price-panel">
+            <p class="panel-label">組み立て料金</p>
+            <h3>説明書のある家具</h3>
+            <ul class="price-list">
+              <li><div><strong>小</strong><span>カラーボックス・棚・テレビ台・デスクチェア</span></div><b>3,000円</b></li>
+              <li><div><strong>中</strong><span>ベッド・デスク・ラック・ゲーミングチェア</span></div><b>4,500円</b></li>
+              <li><div><strong>大</strong><span>たんす・食器棚・大型収納</span></div><b>6,500円</b></li>
+              <li><div><strong>ダイニングチェア</strong><span>同じ椅子の2脚目から 1,500円</span></div><b>1脚目 3,000円</b></li>
+            </ul>
+            <div class="included">
+              <p><span aria-hidden="true">✓</span> 開梱・組み立て・設置・段ボールをまとめるところまで含みます。</p>
+              <p><span aria-hidden="true">−</span> 段ボールの処分、部品が足りないときの対応は含みません。</p>
+              <p><span aria-hidden="true">✓</span> 営業時間内は1点ごとの料金のみ。時間料金は加算しません。</p>
+              <p><span aria-hidden="true">※</span> 23時以降は要相談で、別途深夜料金がかかります。</p>
             </div>
+          </article>
+
+          <article class="price-panel shopping-panel">
+            <p class="panel-label">買い物代行</p>
+            <h3>お店1軒＋商品代</h3>
+            <p class="shopping-price"><b>3,000</b>円</p>
+            <p class="small-line">2軒目から 1軒 1,000円</p>
+            <ul class="rule-list">
+              <li>最低料金4,000円はかかりません。</li>
+              <li>商品代は100円未満を切り上げます。<br /><small>例：1,234円 → 1,300円／レシートをお渡しします</small></li>
+              <li>LINEまたはSMSで注文内容を確認できる方は、商品代1万円まで立て替えます。</li>
+              <li>電話だけの場合、または1万円を超える場合は、商品代を先にお預かりします。</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="confirm-flow">
+          <div>
+            <p class="panel-label">購入前の確認</p>
+            <h3>確認文を送り、「OK」をいただいてから買いに行きます。</h3>
           </div>
-          <div class="kit-preview">
-            <div class="kit-item"><span class="kit-icon">URL</span><div><strong>GoogleスプレッドシートのコピーURL</strong><span>まずは自分で触って確認できます。</span></div></div>
-            <div class="kit-item"><span class="kit-icon">PC</span><div><strong>スマホで詰まった時の案内</strong><span>外部ブラウザ・PC推奨の案内もあります。</span></div></div>
-            <div class="kit-item"><span class="kit-icon">?</span><div><strong>開けない時の相談先</strong><span>LINEから状況をそのまま送れます。</span></div></div>
+          <ol>
+            <li><span>1</span>買うもの</li>
+            <li><span>2</span>上限金額</li>
+            <li><span>3</span>お届け先</li>
+            <li><span>4</span>日時</li>
+            <li><span>5</span>代行料</li>
+          </ol>
+        </div>
+
+        <p class="consult-note"><strong>不用品回収は要相談です。</strong> ご依頼内容を確認したうえでご案内します。</p>
+      </section>
+
+      <section class="section" id="area">
+        <div class="section-heading">
+          <p class="section-number">03</p>
+          <div>
+            <p class="eyebrow">AREA &amp; HOURS</p>
+            <h2>出張エリア・対応時間</h2>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section" id="custom">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>使えそうなら、御社用に整えるところまで相談できます。</h2>
-          <p class="lead">無料版は汎用版です。工事種別、担当者、既存フォーム、通知、見積管理などを御社の流れに合わせたい場合は、内容を確認して有料で調整します。</p>
-        </div>
-        <div class="partner-grid">
-          <div class="quiet-card"><strong>項目の調整</strong><p>工事種別、担当者、ステータス、次回アクションを御社の言葉に合わせます。</p></div>
-          <div class="quiet-card"><strong>フォーム接続</strong><p>Googleフォーム回答の取り込みや、既存フォームとの流れを確認します。</p></div>
-          <div class="quiet-card"><strong>WEBアプリ化</strong><p>スプレッドシートで限界が見えた場合、WEBアプリのような画面へ発展できます。</p></div>
-        </div>
-      </div>
-    </section>
+        <div class="area-layout">
+          <div class="area-list">
+            <div class="area-row free"><span><strong>釧路市</strong><small>阿寒・音別を除く</small></span><b>無料</b></div>
+            <div class="area-row free"><span><strong>釧路町</strong><small>遠矢・桂木・セチリ太など</small></span><b>無料</b></div>
+            <div class="area-row"><span><strong>白糠町・鶴居村・阿寒町</strong><small>阿寒湖を除く</small></span><b>2,000円</b></div>
+            <div class="area-row"><span><strong>阿寒湖温泉・音別</strong></span><b>5,000円<br /><small>または要相談</small></b></div>
+          </div>
 
-    <section class="section soft">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>小さく始めるために、範囲を分けています。</h2>
-          <p class="lead">まずは反響・現調まわりから。kintoneや専用システムを入れる前に、管理の型をスプレッドシートで試作・整理できます。</p>
+          <div class="hours-card">
+            <p class="panel-label">営業時間</p>
+            <div><span>平日</span><strong>18:00〜23:00</strong></div>
+            <div><span>土日祝</span><strong>9:00〜18:00</strong></div>
+            <ul>
+              <li>時間は作業が終わる時間です。</li>
+              <li>23:00以降は要相談です。通常料金とは別に深夜料金がかかります。</li>
+              <li>22時以降は音の出る作業をお受けしません。</li>
+              <li>買い物代行はお店の閉店時間までです。</li>
+            </ul>
+          </div>
         </div>
-        <div class="risk-grid">
-          <div class="quiet-card"><strong>無料版でできること</strong><p>問い合わせ管理、現調予定、次回アクション、Googleフォーム接続、既存シート改善の入口。</p></div>
-          <div class="quiet-card"><strong>事前確認が必要</strong><p>LINE/メール自動連携、外部サービス連携、大量データ処理、複雑な権限管理。</p></div>
-          <div class="quiet-card"><strong>向いている会社</strong><p>大きなシステムの前に、まず反響管理の型を固めたい小規模会社。</p></div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section">
-      <div class="wrap about">
-        <div class="avatar"><img src="blue-life-operator-illustration.png" alt="Blue Life運営者イラスト"></div>
-        <div>
-          <h2>現場に、少し余白を。</h2>
-          <p class="lead">Blue Lifeは、建設・住宅業の問い合わせ対応や顧客管理を、Googleスプレッドシート/GASで整える制作サービスです。うけメモは、私自身も業務管理で使っている考え方を、現場会社さんが試しやすい形にした無料版です。小さく作り、使いながら直し、現場の運用に乗る形を一緒に探します。ご相談は、運営している青木が直接お受けします。</p>
+      <section class="section faq-section" id="faq">
+        <div class="section-heading">
+          <p class="section-number">04</p>
+          <div>
+            <p class="eyebrow">FAQ</p>
+            <h2>よくある質問</h2>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="wrap final-cta">
-        <div>
-          <h2>まずは「うけメモ」を、自社の管理表と見比べてください。</h2>
-          <p>LINEから受け取る場合は、メニューの「うけメモを受け取る」をタップしてください。営業先へ直接ご案内する場合は、スプレッドシートURLとこのページURLを直接お送りします。</p>
+        <div class="faq-list">
+          <details><summary>夜や土日祝は割増になりますか？</summary><p>23時までの通常対応時間内は、夜・土日祝の割増はありません。23時以降は通常料金とは別に深夜料金がかかります。</p></details>
+          <details><summary>23時以降も依頼できますか？</summary><p>要相談で承ります。深夜料金は作業内容によってお見積もりし、訪問前に総額をご案内します。</p></details>
+          <details><summary>家具組み立てに時間料金はかかりますか？</summary><p>23時までの通常対応時間内は、1点ごとの料金のみで時間料金は加算しません。23時以降のご依頼には別途深夜料金がかかります。</p></details>
+          <details><summary>家具の段ボールも処分してもらえますか？</summary><p>段ボールをまとめるところまでは料金に含みますが、処分は含みません。</p></details>
+          <details><summary>家具や荷物を別の住所まで運べますか？</summary><p>引っ越しのような荷物の運搬は行いません。家の中で、1人で運べる家具や荷物の移動に対応します。買い物代行で購入した商品は、ご自宅までお届けします。</p></details>
+          <details><summary>買い物の商品代は立て替えてもらえますか？</summary><p>LINEまたはSMSで注文内容を確認できる方は1万円まで立て替えます。電話だけの場合、または1万円を超える場合は先に商品代をお預かりします。</p></details>
+          <details><summary>支払い方法は何ですか？</summary><p>現金でのお支払いです。</p></details>
+          <details><summary>出張費はかかりますか？</summary><p>釧路市（阿寒・音別を除く）と釧路町は無料です。白糠町・鶴居村・阿寒町（阿寒湖を除く）は2,000円、阿寒湖温泉・音別は5,000円または要相談です。</p></details>
+          <details><summary>不用品回収はできますか？</summary><p>要相談です。ご依頼内容を確認したうえでご案内します。</p></details>
+          <details><summary>夜遅くでも家具を組み立ててもらえますか？</summary><p>22時以降は音の出る作業をお受けしません。音の出ない内容でも、23時以降は要相談となり、別途深夜料金がかかります。</p></details>
         </div>
-        <div class="cta-row" style="margin:0">
-          <a class="btn btn-primary" href="https://lin.ee/WhV6vM5">LINEでうけメモを受け取る</a>
-          <a class="btn btn-light" href="#demo">中身をもう一度見る</a>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <p class="eyebrow">CONTACT</p>
+        <h2>ご依頼・ご相談</h2>
+        <p>ご希望の作業内容、場所、希望日時をお知らせください。対応できる内容か確認してからご案内します。</p>
+        <div class="contact-actions">
+          <a class="contact-action line-action" href="https://lin.ee/88Xio6d">LINEで相談する</a>
+          <a class="contact-action phone-action" href="tel:07084177044">070-8417-7044</a>
         </div>
-      </div>
-    </section>
-  </main>
+        <p class="contact-note">電話は対応時間内におかけください。作業中などで出られない場合は、折り返します。</p>
+        <small>お支払い方法：現金のみ</small>
+      </section>
+    </main>
 
-  <footer>
-    <div class="wrap">Blue Life | 現場に、少し余白を。</div>
-  </footer>
-
-  <div class="sticky-mobile-cta">
-    <a class="btn btn-primary" href="https://lin.ee/WhV6vM5">LINEでうけメモを受け取る</a>
-  </div>
-</body>
+    <footer>
+      <a class="brand footer-brand" href="#top">
+        <img src="./blue-life-logo.png" alt="" width="512" height="512" />
+        <span>Blue Life</span>
+      </a>
+      <p>釧路の平日夜・土日祝専門の便利屋</p>
+      <small>© Blue Life</small>
+    </footer>
+  </body>
 </html>
