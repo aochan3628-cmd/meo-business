@@ -197,6 +197,7 @@ footer { padding: 40px 24px; background: #061a33; color: #a8bfd3; text-align: ce
 .footer-brand { color: white; justify-content: center; }
 .footer-brand img { filter: brightness(0) invert(1); }
 footer p { margin: 8px 0; }
+footer > p a { color: #d7e6f3; }
 
 @media (max-width: 900px) {
   .site-header { height: auto; min-height: 76px; padding-top: 8px; padding-bottom: 8px; flex-wrap: wrap; }
